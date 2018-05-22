@@ -1,4 +1,4 @@
 class UserBet < ApplicationRecord
-  belongs_to :bet, through: :user
+  belongs_to :bet
   belongs_to :user
 end
