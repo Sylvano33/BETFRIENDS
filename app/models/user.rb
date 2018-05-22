@@ -11,24 +11,28 @@ class User < ApplicationRecord
   has_many :receiver_bets, through: :user_bets, source: :bet
 
 
-
-
   def launched_bets
     @bets = Bets.all
   end
 
-  def received_bets
-    @
-  end
+  # def received_bets
+  #   @
+  # end
 
-  def won_bets
-  end
+  # def launched_bets_won
+  # end
 
-  def lost_bets
-  end
+  # def received_bets_won
+  # end
+
+  # def won_bets
+  #   launched_bets_won + received_bets_won
+  # end
+
+  # def lost_bets
+  # end
 
 end
 
 
-# user = User.new(username: 'Prout',
-#                 email: 'nom@example.com')
+
