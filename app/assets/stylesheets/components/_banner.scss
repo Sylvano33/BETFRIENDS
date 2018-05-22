@@ -4,7 +4,8 @@
   height: 100vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
-
+  background-position:center center;
+  background-repeat:no-repeat;
   align-items: center;
   justify-content: center;
 
