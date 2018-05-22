@@ -1,2 +1,14 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://acedixon.com/wp-content/uploads/2017/03/a-10.jpg');>
+  <div class="banner-content">
+    <%=image_tag("friends4.png", height: '200', width: '200')%>
+    <h3>Vous avez parié avec un ami ? </h3>
+    <h4>Enregistrer le avec nous et n'oublier plus de le gagner !</h4>
+
+    <div >
+      <%= link_to "Enregistrer un pari", "/cities.html", class: "btn btn-warning btn-lg" "banner-button" %>
+    </div>
+
+  </div>
+</div>
+
+
