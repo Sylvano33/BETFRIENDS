@@ -6,6 +6,6 @@ class Bet < ApplicationRecord
   validates :description, presence: true
   validates :bet_value, presence: true
   validates :receiver_email, presence: true
-  validates :end_of_bet, presence: true
+  validates :end_date_of_bet, presence: true
 
 end

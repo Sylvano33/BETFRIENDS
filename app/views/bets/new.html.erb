@@ -8,7 +8,7 @@
       <h5><%= f.input :receiver_email, placeholder: "Inscris-ici l'email de l'ami avec qui tu veux parier" %></h5>
       <h5><%= f.input :hour_countdown, as: :integer, placeholder: "Inscris le nombre d'heures (entre 1 et 48) avant lequel ton ami doit impérativement accepter le pari (pour éviter l'autodestruction du pari)" %></h5>
 
-      <h5><%= f.input :end_of_bet, placeholder: "Date de fin du pari", html5: true %></h5>
+      <h5><%= f.input :end_date_of_bet, placeholder: "Date de fin du pari", html5: true %></h5>
 
 
       <%= f.button :submit, class: "form-btn btn-block" %>
@@ -17,7 +17,7 @@
 
 </div>
 
-  create_table "bets", force: :cascade do |t|
+<!--   create_table "bets", force: :cascade do |t|
     t.text "description"
     t.string "bet_value"
     t.string "receiver_email"
@@ -29,3 +29,4 @@
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+ -->
