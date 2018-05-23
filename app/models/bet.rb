@@ -8,4 +8,11 @@ class Bet < ApplicationRecord
   validates :receiver_email, presence: true
   validates :end_of_bet, presence: true
 
+  after_create :send_bet_email
+
+  private
+  def send_bet_email
+    BetMailer.newbet(self).deliver_now
+  end
 end
+
