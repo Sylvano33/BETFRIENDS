@@ -13,9 +13,16 @@ User.destroy_all
 bob = User.create!(username: 'blaireaudu33', email: 'name@example.com', password: 'azerty')
 franck = User.create!(username: 'bgdu33', email: 'name2@example2.com', password: 'azerty')
 
-bet1 = Bet.create!(description: 'bet1', status: 'won', user: bob)
-bet2 = Bet.create!(description: 'bet2', status: 'lost', user: bob)
+won = Bet.create!(description: 'bet1', bet_value: 'bier', receiver_email: 'name2@example2.com', deadline_acceptation: '02/10/2018', hour_countdown: '24', end_date_of_bet: '03/10/2018', status: 'won', user: bob)
+lost = Bet.create!(description: 'bet2', bet_value: 'bier', receiver_email: 'name2@example2.com', deadline_acceptation: '02/10/2018', hour_countdown: '24', end_date_of_bet: '03/10/2018', status: 'lost', user: bob)
+pending = Bet.create!(description: 'bet2', bet_value: 'bier', receiver_email: 'name2@example2.com', deadline_acceptation: '02/10/2018', hour_countdown: '24', end_date_of_bet: '03/10/2018', status: 'pending', user: bob)
+accepted = Bet.create!(description: 'bet2', bet_value: 'bier', receiver_email: 'name2@example2.com', deadline_acceptation: '02/10/2018', hour_countdown: '24', end_date_of_bet: '03/10/2018', status: 'accepted', user: bob)
+refused = Bet.create!(description: 'bet2', bet_value: 'bier', receiver_email: 'name2@example2.com', deadline_acceptation: '02/10/2018', hour_countdown: '24', end_date_of_bet: '03/10/2018', status: 'refused', user: bob)
 
-UserBet.create!(user: franck, bet: bet1)
-UserBet.create!(user: franck, bet: bet2)
+
+UserBet.create!(user: franck, bet: won)
+UserBet.create!(user: franck, bet: lost)
+UserBet.create!(user: franck, bet: pending)
+UserBet.create!(user: franck, bet: accepted)
+UserBet.create!(user: franck, bet: refused)
 

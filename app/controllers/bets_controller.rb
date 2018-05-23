@@ -13,7 +13,9 @@ class BetsController < ApplicationController
 
   def create
     @bet = current_user.bets.new(bet_params)
-    if @bet.save
+
+    if bet.save
+      BetMailer.newbet(@bet).deliver_now
       redirect_to bets_path
     else
       render :new
@@ -40,6 +42,6 @@ class BetsController < ApplicationController
   private
 
   def bet_params
-    params.require(:bet).permit(:description, :bet_value, :receiver_email, :deadline_acceptation, :hour_countdown, :end_date_of_bet)
+    params.require(:bet).permit(:description, :bet_value, :receiver_email, :deadline_acceptation, :hour_countdown, :end_date_of_bet, :status)
   end
 end

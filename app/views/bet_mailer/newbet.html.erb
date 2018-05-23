@@ -1,0 +1,9 @@
+<h1>Bet#newbet</h1>
+
+<p>Hi <%= @bet.receiver_email %>,</p>
+
+<p>A friend sent you a bet, Go to Bet Friends and sign in to see it:</p>
+
+<p><%= link_to "Go to BET FRIENDS", bet_url(@bet), class: "btn btn-warning btn-lg banner-button" %></p>
+
+<p>See ya!</p>
