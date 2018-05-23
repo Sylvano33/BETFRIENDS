@@ -25,3 +25,4 @@ UserBet.create!(user: franck, bet: lost)
 UserBet.create!(user: franck, bet: pending)
 UserBet.create!(user: franck, bet: accepted)
 UserBet.create!(user: franck, bet: refused)
+

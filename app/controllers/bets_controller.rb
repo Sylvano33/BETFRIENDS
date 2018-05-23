@@ -13,7 +13,12 @@ class BetsController < ApplicationController
 
   def create
     @bet = current_user.bets.new(bet_params)
+<<<<<<< mailer3
+    if bet.save
+      BetMailer.newbet(@bet).deliver_now
+=======
     if @bet.save
+>>>>>>> master
       redirect_to bets_path
     else
       render :new
