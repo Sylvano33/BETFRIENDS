@@ -15,9 +15,13 @@ franck = User.create!(username: 'bgdu33', email: 'name2@example2.com', password:
 
 won = Bet.create!(description: 'bet1', bet_value: 'bier', receiver_email: 'name2@example2.com', deadline_acceptation: '02/10/2018', hour_countdown: '24', end_of_bet: '03/10/2018', status: 'won', user: bob)
 lost = Bet.create!(description: 'bet2', bet_value: 'bier', receiver_email: 'name2@example2.com', deadline_acceptation: '02/10/2018', hour_countdown: '24', end_of_bet: '03/10/2018', status: 'lost', user: bob)
+pending = Bet.create!(description: 'bet2', bet_value: 'bier', receiver_email: 'name2@example2.com', deadline_acceptation: '02/10/2018', hour_countdown: '24', end_of_bet: '03/10/2018', status: 'pending', user: bob)
+accepted = Bet.create!(description: 'bet2', bet_value: 'bier', receiver_email: 'name2@example2.com', deadline_acceptation: '02/10/2018', hour_countdown: '24', end_of_bet: '03/10/2018', status: 'accepted', user: bob)
+refused = Bet.create!(description: 'bet2', bet_value: 'bier', receiver_email: 'name2@example2.com', deadline_acceptation: '02/10/2018', hour_countdown: '24', end_of_bet: '03/10/2018', status: 'refused', user: bob)
+
 
 UserBet.create!(user: franck, bet: won)
 UserBet.create!(user: franck, bet: lost)
-
-
-
+UserBet.create!(user: franck, bet: pending)
+UserBet.create!(user: franck, bet: accepted)
+UserBet.create!(user: franck, bet: refused)
