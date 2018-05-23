@@ -6,7 +6,7 @@
       <h5><%= f.input :description, as: :text, placeholder: "Décris le pari ici en t'assurant que c'est bien ce que tu as convenu avec ton ami !" %></h5>
       <h5><%= f.input :bet_value, placeholder: "Inscris-ici le gain que vous avez parié ensemble", hint: "Une bière, un resto ?" %></h5>
       <h5><%= f.input :receiver_email, placeholder: "Inscris-ici l'email de l'ami avec qui tu veux parier" %></h5>
-      <h5><%= f.input :hour_countdown, as: :integer, placeholder: "Inscris le nombre d'heures (entre 1 et 48) avant lequel ton ami doit impérativement accepter le pari (pour éviter l'autodestruction du pari)" %></h5>
+      <h5><%= f.input :hour_countdown, as: :integer, placeholder: "Inscris le nombre d'heures (CHOISIR SVP ENTRE 1 ET 48) avant lequel ton ami doit impérativement accepter le pari (pour éviter l'autodestruction du pari)", hint: "CHOISIR SVP ENTRE 1 ET 48 UNIQUEMENT" %></h5>
 
       <h5><%= f.input :end_date_of_bet, placeholder: "Date de fin du pari", html5: true %></h5>
 
