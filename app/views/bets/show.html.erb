@@ -8,7 +8,7 @@
         </div>
 
         <div>
-          <%= @bet.user.username %> a jusqu'au <%= @bet.end_of_bet %> pour prouver qu'il a gagné son paris
+          <%= @bet.user.username %> a jusqu'au <%= @bet.end_date_of_bet %> pour prouver qu'il a gagné son paris
         </div>
 
         <div>
@@ -23,13 +23,26 @@
           <%= @bet.hour_countdown %> heures
         </div>
 
-        <div>
-          <%= link_to "Accepter le challenge", bets_path, class: "btn btn-success btn lg" %>
-        </div>
+        <% if @bet.pending? %>
+          <div>
+            <%= link_to "Accepter le challenge", bet_path(@bet, bet: {status: "accepted"}), method: :put, class: "btn btn-success btn lg" %>
+          </div>
 
-        <div>
-          <%= link_to "Refuser le challenge", bets_path, class: "btn btn-danger btn lg" %>
-        </div>
+          <div>
+            <%= link_to "Refuser le challenge", bet_path(@bet, bet: {status: "refused"}), method: :put, class: "btn btn-danger btn lg" %>
+          </div>
+        <% end %>
+
+        <% if @bet.accepted? %>
+          <div>
+            <%= link_to "WON", bet_path(@bet, bet: {status: "won"}), method: :put, class: "btn btn-success btn lg" %>
+          </div>
+
+          <div>
+            <%= link_to "LOST", bet_path(@bet, bet: {status: "lost"}), method: :put, class: "btn btn-danger btn lg" %>
+          </div>
+        <% end %>
+
 
   </div>
 </div>
