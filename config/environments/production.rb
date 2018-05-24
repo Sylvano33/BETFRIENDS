@@ -10,9 +10,10 @@ ActionMailer::Base.smtp_settings = {
   :password => ENV['SENDGRID_PASSWORD'],
   :domain => 'betfriends-sylvano33.herokuapp.com',
   :address => 'smtp.sendgrid.net',
-  :port => 465,
+  :port => 587,
   :authentication => :plain,
-  :enable_starttls_auto => true
+  :enable_starttls_auto => true,
+  openssl_verify_mode: 'none'
 }
   # Code is not reloaded between requests.
   config.cache_classes = true
