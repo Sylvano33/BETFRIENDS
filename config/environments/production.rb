@@ -1,5 +1,7 @@
 Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+
   config.action_mailer.default_url_options = { host: "http://betfriends-sylvano33.herokuapp.com/" }
   # Verifies that versions and hashed value of the package contents in the project's package.json
 config.webpacker.check_yarn_integrity = false
