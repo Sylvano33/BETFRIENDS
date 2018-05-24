@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'newbet.betfriends@gmail.com'
+  default from: 'bienvenue@betfriends.fun'
   layout 'mailer'
 end
 
