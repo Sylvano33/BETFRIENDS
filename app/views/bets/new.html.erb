@@ -1,32 +1,19 @@
+
+
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://acedixon.com/wp-content/uploads/2017/03/a-10.jpg');">
+  <div class="banner-content">
+    <h3>Décris ton pari</h3>
+    <h7>*champs obligatoires</h7>
+      <%= simple_form_for [@bet] do |f| %>
+        <h5><%= f.input :description, placeholder: "Décris le pari ici" %></h5>
+        <h5><%= f.input :bet_value, placeholder: "Une bière? Un resto? 10 balles?" %></h5>
+        <h5><%= f.input :hour_countdown, as: :integer, placeholder: "48h pour accepter le pari"%></h5>
 
-  <div>
-  <h2>Décris ton nouveau pari</h2>
-    <%= simple_form_for [@bet] do |f| %>
-      <h5><%= f.input :description, as: :text, placeholder: "Décris le pari ici en t'assurant que c'est bien ce que tu as convenu avec ton ami !" %></h5>
-      <h5><%= f.input :bet_value, placeholder: "Inscris-ici le gain que vous avez parié ensemble", hint: "Une bière, un resto ?" %></h5>
-      <h5><%= f.input :receiver_email, placeholder: "Inscris-ici l'email de l'ami avec qui tu veux parier" %></h5>
-      <h5><%= f.input :hour_countdown, as: :integer, placeholder: "Inscris le nombre d'heures (CHOISIR SVP ENTRE 1 ET 48) avant lequel ton ami doit impérativement accepter le pari (pour éviter l'autodestruction du pari)", hint: "CHOISIR SVP ENTRE 1 ET 48 UNIQUEMENT" %></h5>
+        <h5><%= f.input :end_date_of_bet, placeholder: "Date de fin du pari", html5: true %></h5>
 
-      <h5><%= f.input :end_date_of_bet, placeholder: "Date de fin du pari", html5: true %></h5>
+        <h5><%= f.input :receiver_email, placeholder: "Email de ton pote" %></h5>
 
-
-      <%= f.button :submit, class: "form-btn btn-block" %>
-    <% end %>
-    </div>
-
+        <%= f.button :submit, class: "btn btn-warning btn-lg banner-button" %>
+      <% end %>
+  </div>
 </div>
-
-<!--   create_table "bets", force: :cascade do |t|
-    t.text "description"
-    t.string "bet_value"
-    t.string "receiver_email"
-    t.integer "status"
-    t.integer "user_id"
-    t.datetime "deadline_acceptation"
-    t.integer "hour_countdown"
-    t.datetime "end_of_bet"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
- -->
