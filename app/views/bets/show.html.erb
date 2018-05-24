@@ -3,46 +3,45 @@
   <div class="recap-box">
 
       <h2>YOU HAVE RECEIVED A FRIEND'S BET</h2>
-        <div>
+        <div class="text-content">
           <%= @bet.user.username %> a parié que <%= @bet.description %>
         </div>
 
-        <div>
+        <div class="text-content">
           <%= @bet.user.username %> a jusqu'au <%= @bet.end_date_of_bet %> pour prouver qu'il a gagné son paris
         </div>
 
-        <div>
-          Il est prêt à parier <%= @bet.bet_value %> sur le coup !
+        <div class="text-content">
+          <%= @bet.user.username %> est prêt à parier <%= @bet.bet_value %> sur le coup !
         </div>
 
-        <div>
+        <div class="text-content">
           Temps restant pour faire ton choix :
-        </div>
-
-        <div>
           <%= @bet.hour_countdown %> heures
         </div>
 
+
+
         <% if @bet.pending? %>
           <div>
-            <%= link_to "Accepter le challenge", bet_path(@bet, bet: {status: "accepted"}), method: :put, class: "btn btn-success btn lg" %>
+            <%= link_to "Accepter le challenge", bet_path(@bet, bet: {status: "accepted"}), method: :put, class: "btn btn-warning btn-block" %>
           </div>
 
           <div>
-            <%= link_to "Refuser le challenge", bet_path(@bet, bet: {status: "refused"}), method: :put, class: "btn btn-danger btn lg" %>
+            <%= link_to "Refuser le challenge", bet_path(@bet, bet: {status: "refused"}), method: :put, class: "btn btn-primary btn-block" %>
           </div>
         <% end %>
 
         <% if @bet.accepted? %>
           <div>
-            <%= link_to "WON", bet_path(@bet, bet: {status: "won"}), method: :put, class: "btn btn-success btn lg" %>
+            <%= link_to "WON", bet_path(@bet, bet: {status: "won"}), method: :put, class: "btn btn-warning btn-block" %>
           </div>
 
           <div>
-            <%= link_to "LOST", bet_path(@bet, bet: {status: "lost"}), method: :put, class: "btn btn-danger btn lg" %>
+            <%= link_to "LOST", bet_path(@bet, bet: {status: "lost"}), method: :put, class: "btn btn-primary btn-block" %>
           </div>
         <% end %>
 
-
   </div>
 </div>
+
