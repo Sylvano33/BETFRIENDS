@@ -1,4 +1,5 @@
 class BetsController < ApplicationController
+
   def index
     @bets = Bet.all.order(created_at: :desc)
   end

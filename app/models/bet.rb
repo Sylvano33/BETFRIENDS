@@ -14,8 +14,15 @@ class Bet < ApplicationRecord
   validates :end_date_of_bet, presence: true
 
   after_create :send_bet_email
+  before_save :default_status
+
+  def default_status
+    self.status || :pending
+  end
 
   private
+
+
   def send_bet_email
     BetMailer.newbet(self).deliver_now
   end
