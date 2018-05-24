@@ -1,0 +1,38 @@
+
+  <h3>Liste de vos paris</h3>
+
+<hr>
+<div class="container">
+
+  <% @bets.each do |bet| %>
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+      <div class="card-category"> <%= bet.status %></div>
+      <div class="card-description">
+        <h2> Mise du pari = <%= bet.bet_value %> </h2>
+        <p> <%= bet.description %> </p>
+      </div>
+      <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+      <a class="card-link" href="#" ></a>
+    </div>
+
+
+
+
+
+
+  <% end %>
+
+</div>
+
+
+
+
+<hr>
+<div >
+<%= link_to 'Lancer un nouveau pari ;)', new_bet_path %>
+</div>
+
+
+
+
+
