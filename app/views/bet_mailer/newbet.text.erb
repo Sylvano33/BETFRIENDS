@@ -1,3 +1,9 @@
 Bet#newbet
 
-<%= @greeting %>, find me in app/views/bet_mailer/newbet.text.erb
+<%= @bet.receiver_email %>
+
+A friend sent you a bet, Go to Bet Friends and sign in to see it:
+
+<%= link_to "Go to BET FRIENDS", bet_url(@bet), class: "btn btn-warning btn-lg banner-button" %>
+
+See ya!
