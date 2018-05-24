@@ -8,9 +8,9 @@ config.webpacker.check_yarn_integrity = false
 ActionMailer::Base.smtp_settings = {
   :user_name => ENV['SENDGRID_USERNAME'],
   :password => ENV['SENDGRID_PASSWORD'],
-  :domain => 'yourdomain.com',
+  :domain => 'https://betfriends-sylvano33.herokuapp.com',
   :address => 'smtp.sendgrid.net',
-  :port => 587,
+  :port => 465,
   :authentication => :plain,
   :enable_starttls_auto => true
 }
