@@ -43,6 +43,7 @@ class User < ApplicationRecord
   def lost_bets
     launched_bets_lost + received_bets_lost
   end
+
 end
 
 
