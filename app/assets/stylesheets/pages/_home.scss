@@ -1,2 +1,38 @@
 // Specific CSS for your home-page
+.home {
+  height: calc(100vh - 70px);
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
 
+.home-box {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.pink-stripe {
+  position: absolute;
+  bottom: 18px;
+  height: 20px;
+  width: 200px;
+  background-color: $orange;
+}
+
+.pink-stripe-thin {
+  position: absolute;
+  bottom: 20px;
+  height: 8px;
+  width: 250px;
+  background-color: $orange;
+}
