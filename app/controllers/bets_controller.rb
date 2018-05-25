@@ -1,7 +1,9 @@
 class BetsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show, :update]
 
   def index
-    @bets = Bet.all.order(created_at: :desc)
+    @bets = current_user.bets.order(created_at: :desc) + current_user.receiver_bets.order(created_at: :desc)
+    # @receiver_email = current_user.receiver_bets.order(created_at: :desc)
   end
 
   def show
@@ -29,9 +31,16 @@ class BetsController < ApplicationController
   end
 
   def update
-    @bet = Bet.find(params[:id])
-    @bet.update(bet_params)
-    redirect_to bet_path(@bet)
+    bet = Bet.find(params[:id])
+    receiver = User.find_by(email: bet_params[:receiver_email])
+    if receiver
+      bet.update(bet_params)
+      UserBet.create(user: receiver, bet: bet)
+      redirect_to bet_path(bet)
+    else
+      # l'utilisateur n'existe pas sign up + penser à creer le many to many dans UserBet
+      redirect_to new_user_registration_path
+    end
   end
 
   def destroy
