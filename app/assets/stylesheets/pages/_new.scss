@@ -1,0 +1,29 @@
+
+.register {
+  background-color: white;
+  height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  text-align: center;
+  justify-content: center;
+}
+
+.register-box {
+  color: black;
+  align-items: center;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.reference {
+  position: absolute;
+  left: 80px;
+  bottom: 20px;
+  height: 17px;
+  width: 200px;
+  background-color: $orange;
+}
