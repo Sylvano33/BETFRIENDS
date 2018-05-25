@@ -1,9 +1,19 @@
-<h1>Bet#newbet</h1>
+<h1>Salut<%= @bet.receiver_email %>,</h1>
 
-<p>Hi <%= @bet.receiver_email %>,</p>
+<p>Ton ami(e)<%= @bet.user.username %> a décidé de faire appel à notre service Betfriends pour "graver dans le marbre d'internet" le pari que vous avez fait ensemble : </p>
 
-<p>A friend sent you a bet, Go to Bet Friends and sign in to see it:</p>
+<p>Il a indiqué que votre pari est :</p>
+
+<p><%= @bet.description %></p>
+
+<p>L'enjeu de votre pari</p>
+
+<p><%= @bet.bet_value %></p>
+
+Grâce à nous, vous recevrez si besoin un email de rappel le <%= @bet.end_date_of_bet %> pour savoir qui a gagné ou perdu le pari.
+
+Tu es ok ? Alors rends-toi sur ce lien pour accepter le pari !
 
 <p><%= link_to "Go to BET FRIENDS", bet_url(@bet), class: "btn btn-warning btn-lg banner-button" %></p>
 
-<p>See ya!</p>
+<h2>Bienvenue sur Betfriends ! Le service le plus simple et sympa pour enregistrer des paris entre amis ;)</h2>
