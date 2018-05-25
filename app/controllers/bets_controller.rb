@@ -1,7 +1,7 @@
 class BetsController < ApplicationController
 
   def index
-    @bets = Bet.all.order(created_at: :desc)
+    @bets = Bet.current_all.order(created_at: :desc)
   end
 
   def show
@@ -17,6 +17,7 @@ class BetsController < ApplicationController
 
     if @bet.save
       BetMailer.newbet(@bet).deliver_now
+      BetMailer.enddate(@bet).deliver_later(wait_until: 1.minute.from_now)
       redirect_to bets_path
     else
       render :new
