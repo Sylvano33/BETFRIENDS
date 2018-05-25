@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180523124513) do
+ActiveRecord::Schema.define(version: 20180524170833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20180523124513) do
     t.text "description"
     t.string "bet_value"
     t.string "receiver_email"
-    t.integer "status"
+    t.integer "status", default: 0
     t.integer "user_id"
     t.datetime "deadline_acceptation"
     t.integer "hour_countdown"
