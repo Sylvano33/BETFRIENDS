@@ -24,11 +24,11 @@
 
         <% if @bet.pending? %>
           <div>
-            <%= link_to "Accepter le challenge", bet_path(@bet, bet: {status: "accepted"}), method: :put, class: "btn btn-warning btn-block" %>
+            <%= link_to "Accepter le challenge", bet_path(@bet, bet: {status: "accepted", receiver_email: @bet.receiver_email}), method: :put, class: "btn btn-warning btn-block" %>
           </div>
 
           <div>
-            <%= link_to "Refuser le challenge", bet_path(@bet, bet: {status: "refused"}), method: :put, class: "btn btn-primary btn-block" %>
+            <%= link_to "Refuser le challenge", bet_path(@bet, bet: {status: "refused", receiver_email: @bet.receiver_email }), method: :put, class: "btn btn-primary btn-block" %>
           </div>
         <% end %>
 
