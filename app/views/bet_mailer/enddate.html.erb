@@ -1,0 +1,15 @@
+<h1>Salut<%= @bet.receiver_email, @bet.user %>,</h1>
+
+<p>Souvenez-vous le <%= @bet.created_at %> toi et ton ami(e) avez parié sur : </p>
+
+<p><%= @bet.description %></p>
+
+<p>Aujourd'hui, l'un de vous va gagner :</p>
+
+<p><%= @bet.bet_value %></p>
+
+<p>Soyez fair-play et indiquez sur Betfriends si vous avez gagné ou perdu ce pari. Vous pourrez ainsi gagner un nouveau badge Betfriends et voir tes scores de tous vos paris cumulés !</p>
+
+<p><%= link_to "Go to BET FRIENDS", bet_url(@bet), class: "btn btn-warning btn-lg banner-button" %></p>
+
+<h2>L'équipe Betfriends est heureuse de t'avoir comme Betfriender ;)</h2>
