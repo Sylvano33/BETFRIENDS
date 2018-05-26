@@ -1,7 +1,8 @@
 class Bet < ApplicationRecord
   belongs_to :user
   has_many :user_bets
-  enum status: [ :pending, :accepted, :refused, :won, :lost ]
+  enum status: [ :pending, :accepted, :refused, :won, :lost
+   ]
   # scope :won, ->{ where status: :won }
 
 
