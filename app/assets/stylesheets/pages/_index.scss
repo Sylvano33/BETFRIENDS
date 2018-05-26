@@ -2,3 +2,11 @@
 @import "home";
 @import "new";
 @import "show";
+
+.index-page {
+  text-align: left;
+  justify-content: left;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}

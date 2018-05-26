@@ -1,18 +1,16 @@
-<% @bets.each do |bet| %>
-  <div class="wrapper">
-    <div class="product-img">
-      <%= image_tag("#{bet.status}.jpg") %>
+
+
+
+<div class="index-page">
+  <% @bets.each do |bet| %>
+    <div class="index-category"><%= bet.description %></div>
+    <div class="index-description">
+      <h4><%= bet.status %></h4>
+      <p>Adversaire : <%= bet.receiver_email %></p>
+      <p>Mise : <%= bet.bet_value %></p>
+      <p>Fin : <%= bet.end_date_of_bet %></p>
+      <%= link_to "Voir le pari", bet_url(bet), class: "btn btn-warning btn-lg banner-button" %>
     </div>
-    <div class="product-info">
-      <div class="product-text">
-        <h1><%= bet.status %></h1>
-        <h2><%= bet.description %></h2>
-        <p><%= bet.bet_value %></p>
-      </div>
-      <div class="product-price-btn">
-        <p></p>
-        <%= link_to "Voir le pari", bet_url(bet), class: "btn btn-warning btn-lg banner-button" %>
-      </div>
-    </div>
-  </div>
-<% end %>
+    <a class="index-link" href="#" ></a>
+  <% end %>
+</div>
