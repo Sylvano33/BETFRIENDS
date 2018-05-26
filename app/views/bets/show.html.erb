@@ -1,49 +1,41 @@
+<div class="abstract">
 
-
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://acedixon.com/wp-content/uploads/2017/03/a-10.jpg');">
-
-  <div class="recap-box">
-
-      <h2>YOU HAVE RECEIVED A FRIEND'S BET</h2>
-        <div class="text-content">
-          <%= @bet.user.username %> a parié que <%= @bet.description %>
-        </div>
-
-        <div class="text-content">
-          <%= @bet.user.username %> a jusqu'au <%= @bet.end_date_of_bet %> pour prouver qu'il a gagné son paris
-        </div>
-
-        <div class="text-content">
-          <%= @bet.user.username %> est prêt à parier <%= @bet.bet_value %> sur le coup !
-        </div>
-
-        <div class="text-content">
-          Temps restant pour faire ton choix :
-          <%= @bet.hour_countdown %> heures
-        </div>
-
-
-
-        <% if @bet.pending? %>
-          <div>
-            <%= link_to "Accepter le challenge", bet_path(@bet, bet: {status: "accepted", receiver_email: @bet.receiver_email}), method: :put, class: "btn btn-warning btn-block" %>
-          </div>
-
-          <div>
-            <%= link_to "Refuser le challenge", bet_path(@bet, bet: {status: "refused", receiver_email: @bet.receiver_email }), method: :put, class: "btn btn-primary btn-block" %>
-          </div>
-        <% end %>
-
-        <% if @bet.accepted? %>
-          <div>
-            <%= link_to "WON", bet_path(@bet, bet: {status: "won"}), method: :put, class: "btn btn-warning btn-block" %>
-          </div>
-
-          <div>
-            <%= link_to "LOST", bet_path(@bet, bet: {status: "lost"}), method: :put, class: "btn btn-primary btn-block" %>
-          </div>
-        <% end %>
-
+  <div class="alert-box">
+    <%=image_tag("alert2.png", height: '110', width: '110')%>
   </div>
+
+  <div class="alert-box">
+    <h3>Tu as reçu un BET</h3>
+    <div class="stabil"></div>
+  </div>
+
+  <div class="abstract-box">
+    <p>
+      <strong><%= @bet.user.username %></strong> est prêt à parier <strong><%= @bet.bet_value %></strong> que <strong><%= @bet.description %></strong>.
+    </p>
+
+    <p>
+      Tu as <strong><%= @bet.hour_countdown %> heures</strong> pour accepter ou refuser le BET.
+    </p>
+
+    <div class="alert-box">
+      Le pari prendra fin le <strong><%= @bet.end_date_of_bet %></strong>
+      <div class="stabil2"></div>
+    </div>
+  </div>
+
+
+  <div class="pink-button-box">
+    <% if @bet.pending? %>
+      <%= link_to "Accepter le BET", bet_path(@bet, bet: {status: "accepted", receiver_email: @bet.receiver_email}), method: :put, class: "btn btn-warning btn-block" %>
+      <%= link_to "Refuser le BET", bet_path(@bet, bet: {status: "refused", receiver_email: @bet.receiver_email }), method: :put, class: "btn btn-primary btn-block" %>
+    <% end %>
+
+    <% if @bet.accepted? %>
+      <%= link_to "WON", bet_path(@bet, bet: {status: "won"}), method: :put, class: "btn btn-warning btn-block" %>
+      <%= link_to "LOST", bet_path(@bet, bet: {status: "lost"}), method: :put, class: "btn btn-primary btn-block" %>
+    <% end %>
+  </div>
+
 </div>
 

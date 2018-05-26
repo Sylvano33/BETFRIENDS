@@ -1,0 +1,52 @@
+.abstract {
+  background-color: white;
+  height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.abstract-box {
+  color: black;
+  align-items: left;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  position: relative;
+}
+
+.stabil {
+  position: absolute;
+  left: 80px;
+  bottom: 20px;
+  height: 17px;
+  width: 200px;
+  background-color: $orange;
+  opacity: 0.3;
+}
+
+.stabil2 {
+  position: absolute;
+  left: 80px;
+  bottom: 10px;
+  height: 14px;
+  width: 200px;
+  background-color: $orange;
+  opacity: 0.3;
+}
+
+.alert-box {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.pink-button-box {
+  margin-top: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
