@@ -11,15 +11,15 @@
   align-items: left;
   margin-right: 10px;
   margin-left: 10px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   position: relative;
 }
 
 .stabil {
   position: absolute;
   left: 80px;
-  bottom: 20px;
+  bottom: 6px;
   height: 17px;
   width: 200px;
   background-color: $orange;
@@ -29,7 +29,7 @@
 .stabil2 {
   position: absolute;
   left: 80px;
-  bottom: 10px;
+  bottom: 1px;
   height: 14px;
   width: 200px;
   background-color: $orange;
@@ -41,7 +41,7 @@
   text-align: center;
   justify-content: center;
   position: relative;
-  padding-bottom: 10px;
+  padding-bottom: 0px;
 }
 
 .pink-button-box {
