@@ -1,25 +1,22 @@
- <div class="home" style="background-image: url(/bandes.png)>
-  <div class="container">
-    <div class="home-box">
-      <%=image_tag("logo1.png", height: '170', width: '170')%>
-    </div>
+ <div class="home">
+  <div class="home-box">
+    <%=image_tag("logo1.png", height: '170', width: '170')%>
+  </div>
 
-    <div class="home-box">
-      <h2>Tu as fait un pari avec un ami?</h2>
-      <div class="pink-stripe"></div>
-    </div>
-
+  <div class="home-box">
+    <h2>Tu as fait un pari avec un ami?</h2>
+    <div class="pink-stripe"></div>
+  </div>
 
 
-    <div class="home-box">
-      <h6>Enregistre-le et n'oublies plus de gagner!</h6>
-      <div class="pink-stripe-thin"></div>
-    </div>
 
-    <div class="pink-button-home">
-      <div class="home-box"><%= link_to "Commencer", new_bet_path, class: "btn btn-warning btn-block" %></div>
-    </div>
+  <div class="home-box">
+    <h6>Enregistre-le et n'oublies plus de gagner!</h6>
+    <div class="pink-stripe-thin"></div>
+  </div>
 
+  <div class="pink-button-home">
+    <div class="home-box"><%= link_to "Commencer", new_bet_path, class: "btn btn-warning btn-block" %></div>
   </div>
 </div>
 
