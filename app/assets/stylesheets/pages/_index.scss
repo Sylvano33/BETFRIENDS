@@ -40,6 +40,24 @@
   justify-content: left;
 }
 
+.box-hole {
+  position: absolute;
+  left: -4px;
+  top: 20px;
+  height: 40px;
+  width: 7px;
+  background-color: white;
+}
+
+.box-hole2 {
+  position: absolute;
+  right: -4px;
+  bottom: 70px;
+  height: 40px;
+  width: 7px;
+  background-color: white;
+}
+
 .foot {
    position: fixed;
    bottom: 0;
