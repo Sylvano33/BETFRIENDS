@@ -1,7 +1,18 @@
 <div class="abstract">
 
   <div class="alert-box">
-    <%=image_tag("alert2.png", height: '100', width: '110')%>
+    <% if @bet.pending? %>
+     <%=image_tag("alert2.png", height: '100', width: '110')%>
+    <% end %>
+    <% if @bet.accepted? %>
+     <%=image_tag("time.png", height: '120', width: '120')%>
+    <% end %>
+    <% if @bet.won? %>
+     <%=image_tag("trophy.png", height: '130', width: '130')%>
+    <% end %>
+    <% if @bet.lost? %>
+     <%=image_tag("loser.png", height: '130', width: '130')%>
+    <% end %>
   </div>
 
   <div class="alert-box">
