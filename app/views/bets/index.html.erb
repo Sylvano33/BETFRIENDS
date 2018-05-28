@@ -48,7 +48,7 @@
   </div>
 
   <div class="foot">
-    <div class="in-foot"><em>Victoires : </em> <strong>4</strong></div>
-    <div class="in-foot"><em>Défaites : </em> <strong>2</strong></div>
+    <div class="in-foot"><em>Victoires : </em> <strong><%= current_user.won_bets_count %></strong></div>
+    <div class="in-foot"><em>Défaites : </em> <strong><%= current_user.lost_bets_count %></strong></div>
   </div>
 </div>

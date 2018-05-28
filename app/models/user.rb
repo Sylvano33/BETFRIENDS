@@ -63,5 +63,3 @@ class User < ApplicationRecord
 
 end
 
-
-
