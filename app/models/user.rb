@@ -60,5 +60,6 @@ class User < ApplicationRecord
     total_match = won_bets_count + lost_bets_count
     (won_bets_count / total_match.to_f) * 100
   end
+
 end
 
