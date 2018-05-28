@@ -79,11 +79,12 @@
       </div>
       <div class="modal-body">
         <div class="container">
-          <%=image_tag("http://www.f2cheran.com/resources/block/thumbs/202_a7b84a6ca3f4578092814d9eb0acbe15864e2508.jpg", height: '253', width: '293')%>
+          <%=image_tag("http://www.f2cheran.com/resources/block/thumbs/202_a7b84a6ca3f4578092814d9eb0acbe15864e2508.jpg", width: '293')%>
         </div>
       </div>
       <div class="modal-footer">
-        <%= link_to "Mais j'ai vraiment gagné!", bet_path(@bet, bet: {status: "won"}), method: :put, class: "btn btn-warning btn-block" %>
+        <button type="button" class="btn btn-warning btn-block" data-toggle="modal" data-target="#myModalreal">Mais j'ai vraiment gagné!</button>
+
         <%= link_to "Bon c'est vrai, j'ai perdu", bet_path(@bet, bet: {status: "lost"}), method: :put, class: "btn btn-primary btn-block" %>
       </div>
     </div>
@@ -110,3 +111,26 @@
     </div>
   </div>
 </div>
+
+
+
+<!-- modale really won -->
+<div class="modal fade" id="myModalreal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Féliciations, tu peux désormais chambrer lourdement ton adversaire</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <%=image_tag("https://allisyar.files.wordpress.com/2015/10/applause.gif?w=610", width: '293')%>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <%= link_to "Je vais fêter ça", bet_path(@bet, bet: {status: "won"}), method: :put, class: "btn btn-warning btn-block" %>
+      </div>
+    </div>
+  </div>
+</div>
+
