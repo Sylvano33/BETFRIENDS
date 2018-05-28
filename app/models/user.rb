@@ -44,6 +44,23 @@ class User < ApplicationRecord
     launched_bets_lost + received_bets_lost
   end
 
+  def bet_creator?(bet)
+    bet.user == self
+  end
+
+  def won_bet?(bet)
+    bet_creator?(bet) ? bet.won? : bet.lost?
+  end
+
+  def lost_bet?(bet)
+    !won_bet?(bet)
+  end
+
+
+
+
+
+
 end
 
 
