@@ -1,5 +1,4 @@
 class BetsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show, :update]
   # after_action :redirect_to bets_path if: :Bet.update, only: :show
   # after_action :redirect, only: [:update]
 
