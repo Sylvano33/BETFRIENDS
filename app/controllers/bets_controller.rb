@@ -1,5 +1,4 @@
 class BetsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show, :update]
   # after_action :redirect_to bets_path if: :Bet.update, only: :show
   # after_action :redirect, only: [:update]
 
@@ -38,10 +37,10 @@ class BetsController < ApplicationController
 
   def update
     bet = Bet.find(params[:id])
-    receiver = User.find_by(email: bet.receiver_email)
-    if receiver
+    if current_user
       bet.update(bet_params)
-      UserBet.create(user: receiver, bet: bet)
+
+      UserBet.create(user: current_user, bet: bet)
       redirect_to bets_path
     else
       # l'utilisateur n'existe pas sign up + penser à creer le many to many dans UserBet
