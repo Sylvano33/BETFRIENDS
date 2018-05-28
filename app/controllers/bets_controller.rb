@@ -58,6 +58,6 @@ class BetsController < ApplicationController
   private
 
   def bet_params
-    params.require(:bet).permit(:description, :bet_value, :receiver_email, :deadline_acceptation, :hour_countdown, :end_date_of_bet, :status)
+    params.require(:bet).permit(:description, :bet_value, :receiver_email, :receiver_firstname, :deadline_acceptation, :hour_countdown, :end_date_of_bet, :status)
   end
 end
