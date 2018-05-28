@@ -6,13 +6,13 @@
   display: flex;
   flex-direction: column;
   background-color: white;
+  justify-content: space-between;
 }
 
 .home-box {
   color: black;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -43,3 +43,5 @@
   margin-left: 10px;
   margin-right: 10px;
 }
+
+

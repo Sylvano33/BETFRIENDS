@@ -1,11 +1,33 @@
 <div class="abstract">
 
   <div class="alert-box">
-    <%=image_tag("alert2.png", height: '110', width: '110')%>
+    <% if @bet.pending? %>
+     <%=image_tag("alert2.png", height: '100', width: '110')%>
+    <% end %>
+    <% if @bet.accepted? %>
+     <%=image_tag("time.png", height: '120', width: '120')%>
+    <% end %>
+    <% if @bet.won? %>
+     <%=image_tag("trophy.png", height: '130', width: '130')%>
+    <% end %>
+    <% if @bet.lost? %>
+     <%=image_tag("loser.png", height: '130', width: '130')%>
+    <% end %>
   </div>
 
   <div class="alert-box">
-    <h3>Tu as reçu un BET</h3>
+    <% if @bet.pending? %>
+     <h3>Tu as reçu un BET</h3>
+    <% end %>
+    <% if @bet.accepted? %>
+     <h3>Qui va gagner le BET?</h3>
+    <% end %>
+    <% if @bet.won? %>
+     <h3>Tu as gagné ce BET !</h3>
+    <% end %>
+    <% if @bet.lost? %>
+     <h3>Tu as perdu ce BET</h3>
+    <% end %>
     <div class="stabil"></div>
   </div>
 
