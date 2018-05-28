@@ -9,6 +9,8 @@
     <p> Ce bet a été créé par <strong> <%= bet.user.username %> </strong></p>
     <!-- à enlever -->
 
+
+<!-- carré de couleur -->
       <div class="col-xs-12">
         <div class="bet">
           <p><%= bet.description %></p>
@@ -27,15 +29,28 @@
             <% end %>
 
             <% if bet.won? %>
-              <div class="green-cube"></div>
+              <% if current_user.bet_creator?(bet) %>
+                <div class="green-cube"></div>
+              <% else %>
+                <div class="red-cube"></div>
+              <% end  %>
             <% end %>
 
             <% if bet.lost? %>
-              <div class="red-cube"></div>
+              <% if current_user.bet_creator?(bet) %>
+                <div class="red-cube"></div>
+              <% else %>
+                <div class="green-cube"></div>
+              <% end  %>
             <% end %>
 
+       <!--  description -->
             <div class="in-bet">
-              <p><strong>Adversaire : </strong><%= bet.receiver_email %></p>
+              <% if current_user.bet_creator?(bet) %>
+                <p><strong>Adversaire : </strong><%= bet.receiver_email %></p>
+              <% else %>
+                <p><strong>Adversaire : </strong><%= bet.user.username %></p>
+              <% end  %>
               <p><strong>Mise : </strong><%= bet.bet_value %></p>
               <p><strong>Fin : </strong><%= bet.end_date_of_bet %></p>
               <%= link_to "Voir le pari", bet_url(bet), class: "btn btn-warning btn-lg banner-button" %>
