@@ -27,6 +27,10 @@
           </ul>
         </div>
       </div>
+
+        <div class=".navbar-wagon-item-nolink"> <%= "#{current_user.username}" %> </div>
+
+
     <% else %>
       <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
