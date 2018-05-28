@@ -5,6 +5,10 @@
   <div class="row"></div>
 
     <% @bets.each do |bet| %>
+    <!-- à enlever -->
+    <p> Ce bet a été créé par <strong> <%= bet.user.username %> </strong></p>
+    <!-- à enlever -->
+
       <div class="col-xs-12">
         <div class="bet">
           <p><%= bet.description %></p>

@@ -17,40 +17,89 @@
 
   <div class="alert-box">
     <% if @bet.pending? %>
-     <h3>Tu as reçu un BET</h3>
+     <!-- si lanceur -->
+      <% if current_user.bet_creator?(@bet) %>
+        <h3>Tu as envoyé BET</h3>
+     <!-- si receveur -->
+      <% else %>
+        <h3>Tu as reçu un BET</h3>
+      <% end %>
     <% end %>
     <% if @bet.accepted? %>
      <h3>Qui va gagner le BET?</h3>
     <% end %>
     <% if @bet.won? %>
+     <!-- si lanceur -->
+
+     <!-- si receveur -->
      <h3>Tu as gagné ce BET !</h3>
     <% end %>
     <% if @bet.lost? %>
+     <!-- si lanceur -->
+
+     <!-- si receveur -->
      <h3>Tu as perdu ce BET</h3>
     <% end %>
     <div class="stabil"></div>
   </div>
 
-  <div class="abstract-box">
-    <p>
-      <strong><%= @bet.user.username %></strong> est prêt à parier <strong><%= @bet.bet_value %></strong> que <strong><%= @bet.description %></strong>.
-    </p>
+  <!-- phrase bet pending en attente retour adversaire-->
+  <% if current_user.bet_creator?(@bet) %>
+    <div class="abstract-box">
+      <p>
+        Tu as parié <strong><%= @bet.bet_value %></strong> contre ton ami que <strong><%= @bet.description %></strong>.
+      </p>
 
-    <p>
-      Tu as <strong><%= @bet.hour_countdown %> heures</strong> pour accepter ou refuser le BET.
-    </p>
+      <p>
+        Ton adversaire a <strong><%= @bet.hour_countdown %> heures</strong> pour accepter ou refuser le BET.
+      </p>
 
-    <div class="alert-box">
-      Le pari prendra fin le <strong><%= @bet.end_date_of_bet %></strong>
-      <div class="stabil2"></div>
+      <div class="alert-box">
+        Le pari prendra fin le <strong><%= @bet.end_date_of_bet %></strong>
+        <div class="stabil2"></div>
+      </div>
     </div>
-  </div>
+  <% else %>
+    <div class="abstract-box">
+      <p>
+        <strong><%= @bet.user.username %></strong> est prêt à parier <strong><%= @bet.bet_value %></strong> que <strong><%= @bet.description %></strong>.
+      </p>
+
+      <p>
+        Tu as <strong><%= @bet.hour_countdown %> heures</strong> pour accepter ou refuser le BET.
+      </p>
+
+      <div class="alert-box">
+        Le pari prendra fin le <strong><%= @bet.end_date_of_bet %></strong>
+        <div class="stabil2"></div>
+      </div>
+    </div>
+  <% end %>
+
+  <!-- phrase bet won -->
+
+
+
+  <!-- phrase bet lost -->
+
+  <!-- phrase en attente résultat -->
+
+
+
+
+
+
 
 
   <div class="pink-button-box">
     <% if @bet.pending? %>
-      <%= link_to "Accepter le BET", bet_path(@bet, bet: {status: "accepted", receiver_email: @bet.receiver_email}), method: :put, class: "btn btn-warning btn-block" %>
-      <%= link_to "Refuser le BET", bet_path(@bet, bet: {status: "refused", receiver_email: @bet.receiver_email }), method: :put, class: "btn btn-primary btn-block" %>
+      <% if current_user.bet_creator?(@bet) %>
+        <h3>Ton adversaire est lent?</h3>
+        <h4>N'hésite pas à le harceler.</h4>
+      <% else %>
+        <%= link_to "Accepter le BET", bet_path(@bet, bet: {status: "accepted", receiver_email: @bet.receiver_email}), method: :put, class: "btn btn-warning btn-block" %>
+        <%= link_to "Refuser le BET", bet_path(@bet, bet: {status: "refused", receiver_email: @bet.receiver_email }), method: :put, class: "btn btn-primary btn-block" %>
+      <% end %>
     <% end %>
 
     <% if @bet.accepted? %>

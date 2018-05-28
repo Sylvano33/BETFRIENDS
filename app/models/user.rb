@@ -56,10 +56,5 @@ class User < ApplicationRecord
     !won_bet?(bet)
   end
 
-
-
-
-
-
 end
 
