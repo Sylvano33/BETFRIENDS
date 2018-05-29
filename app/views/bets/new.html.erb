@@ -10,7 +10,7 @@
       <div class="register-box"><%= f.input :bet_value, label: false, :required => false, placeholder: "Mise: Une bière? Un resto? 10 balles?" %></div>
       <div class="register-box"><%= f.input :hour_countdown, label: false, :required => false, as: :integer, placeholder: "48h pour accepter le pari"%></div>
 
-      <div class="register-box"><%= f.input :end_date_of_bet, label: false, :required => false, placeholder: "Date de fin du pari", html5: true %></div>
+      <div class="register-box"><%= f.input :end_date_of_bet, label: false, :required => false, placeholder: "Date de fin du pari",as: :string, imput_html: { class: "datepicker" } %></div>
 
       <div class="register-box"><%= f.input :receiver_firstname, label: false, :required => false, placeholder: "Prénom de ton pote" %></div>
 
@@ -19,4 +19,5 @@
       <div class="register-box"><%= f.button :submit, class: "btn btn-warning btn-block banner-button" %></div>
     <% end %>
 </div>
+
 
