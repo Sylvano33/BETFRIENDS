@@ -219,10 +219,8 @@
 
 
 
-
-
-
-
+<!--   buttons  -->
+    <!-- accept refuse -->
 
   <div class="pink-button-box">
     <% if @bet.pending? %>
@@ -235,10 +233,18 @@
       <% end %>
     <% end %>
 
-    <% if @bet.accepted? %>
-      <button type="button" class="btn btn-warning btn-block" data-toggle="modal" data-target="#myModalwon">J'ai Gagné, les doigts dans le nez</button>
+    <!-- won lost -->
 
-      <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModallost">J'ai Perdu,  les doigts dans le  . . . </button>
+    <% if @bet.accepted? %>
+      <% if current_user.bet_creator?(@bet) %>
+        <button type="button" class="btn btn-warning btn-block" data-toggle="modal" data-target="#myModalwon">J'ai Gagné, les doigts dans le nez</button>
+
+        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModallost">J'ai Perdu,  les doigts dans le  . . . </button>
+      <% else %>
+        <button type="button" class="btn btn-warning btn-block" data-toggle="modal" data-target="#myModalwon">J'ai Gagné, les doigts dans le nez</button>
+
+        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModallost">J'ai Perdu,  les doigts dans le  . . . </button>
+      <% end %>
     <% end %>
   </div>
 
@@ -288,7 +294,11 @@
         </div>
       </div>
       <div class="modal-footer">
-        <%= link_to "Je reviendrai plus fort", bet_path(@bet, bet: {status: "lost"}), method: :put, class: "btn btn-primary btn-block" %>
+        <% if current_user.bet_creator?(@bet) %>
+          <%= link_to "Je reviendrai plus fort", bet_path(@bet, bet: {status: "lost"}), method: :put, class: "btn btn-primary btn-block" %>
+        <% else %>
+          <%= link_to "Je reviendrai plus fort", bet_path(@bet, bet: {status: "won"}), method: :put, class: "btn btn-primary btn-block" %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -310,7 +320,11 @@
         </div>
       </div>
       <div class="modal-footer">
-        <%= link_to "Je vais fêter ça", bet_path(@bet, bet: {status: "won"}), method: :put, class: "btn btn-warning btn-block" %>
+        <% if current_user.bet_creator?(@bet) %>
+          <%= link_to "Je vais fêter ça", bet_path(@bet, bet: {status: "won"}), method: :put, class: "btn btn-warning btn-block" %>
+        <% else  %>
+          <%= link_to "Je vais fêter ça", bet_path(@bet, bet: {status: "lost"}), method: :put, class: "btn btn-warning btn-block" %>
+        <%end  %>
       </div>
     </div>
   </div>
