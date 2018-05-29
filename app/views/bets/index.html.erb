@@ -6,14 +6,14 @@
 
     <% @bets.each do |bet| %>
     <!-- à enlever -->
-    <!-- <p> Ce bet a été créé par <strong> <%= bet.user.username %> </strong></p> -->
-    <!-- à enlever -->
+
 
 
 <!-- carré de couleur -->
       <div class="col-xs-12">
         <div class="bet">
           <p><%= bet.description %></p>
+
           <div class="container">
             <div class="pink-stripe-lg"></div>
 
@@ -57,6 +57,8 @@
               <p><strong>Mise : </strong><%= bet.bet_value %></p>
               <p><strong>Fin : </strong><%= bet.end_date_of_bet %></p>
               <%= link_to "Voir le pari", bet_url(bet), class: "btn btn-warning btn-lg banner-button" %>
+              <p> Ce bet a été créé par <strong> <%= bet.user.username %> </strong></p>
+              <p> <%= bet.deadline_hour %></p>
             </div>
 
             <a class="index-link" href="#" ></a>

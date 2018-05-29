@@ -197,6 +197,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   autoprefixer-rails
   bootstrap-sass (~> 3.3)
   devise
