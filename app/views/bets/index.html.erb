@@ -69,8 +69,31 @@
 
   </div>
 
+<!-- bon bout -->
   <div class="foot">
     <div class="in-foot"><em>Victoires : </em> <strong><%= current_user.won_bets_count %></strong></div>
     <div class="in-foot"><em>Défaites : </em> <strong><%= current_user.lost_bets_count %></strong></div>
   </div>
-</div>
+<!-- bon bout -->
+  <% unless current_user.win_rate.nil? || current_user.win_rate == 0 %>
+    <div class="foot">
+      <div class="in-foot"><em>Victoires : </em> <strong><%= current_user.won_bets_count %></strong></div>
+      <div class="in-foot"></div>
+    <div class="in-foot"><em>Défaites : </em> <strong><%= current_user.lost_bets_count %></strong></div>
+    </div>
+  <% else %>
+    <% if current_user.win_rate.between?(0, 20) %>
+      <div class="on-foot-0-20"></div>
+    <% elsif current_user.win_rate.between?(20, 40) %>
+      <div class="on-foot-20-40"></div>
+    <% elsif current_user.win_rate.between?(40, 60) %>
+      <div class="on-foot-40-60"></div>
+    <% elsif current_user.win_rate.between?(60, 80) %>
+      <div class="on-foot-60-80"></div>
+    <% elsif current_user.win_rate.between?(80, 100) %>
+      <div class="on-foot-80-100"></div>
+    <% end %>
+  <% end %>
+
+
+
