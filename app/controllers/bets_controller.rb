@@ -56,6 +56,16 @@ class BetsController < ApplicationController
   end
 
 
+  def bets_unaccepted
+    Bet.all.where(Time.zone.now > bet.deadline_acceptation)
+  end
+
+# Client.where(created_at: (Time.now.midnight - 1.day)..Time.now.midnight)
+
+
+# Client.where("created_at >= :start_date AND created_at <= :end_date",
+#   {start_date: params[:start_date], end_date: params[:end_date]})
+
 
   # def destroy_if_unaccepted
   #   @bet = Bet.find(params[:id])

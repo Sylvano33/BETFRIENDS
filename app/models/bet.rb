@@ -20,6 +20,9 @@ class Bet < ApplicationRecord
     deadline.strftime("%v %r")
   end
 
+  def self.unaccepted
+    where('deadline_acceptation < ?', Time.zone.now )
+  end
 
 
   private
