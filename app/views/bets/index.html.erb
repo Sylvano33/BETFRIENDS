@@ -7,8 +7,9 @@
     <% @bets.each do |bet| %>
     <!-- à enlever -->
 
-    <!-- à enlever -->
 
+
+<!-- carré de couleur -->
       <div class="col-xs-12">
         <div class="bet">
           <p><%= bet.description %></p>
@@ -20,23 +21,39 @@
             <div class="box-hole2"></div>
 
             <% if bet.pending? %>
-              <div class="grey-cube"></div>
+              <div class="grey-cube"><%=image_tag("homerpending.png", height: '62')%></div>
             <% end %>
 
             <% if bet.accepted? %>
-              <div class="pink-cube"></div>
+              <div class="pink-cube"><%=image_tag("homerwait.png", height: '62')%></div>
             <% end %>
 
             <% if bet.won? %>
-              <div class="green-cube"></div>
+              <% if current_user.bet_creator?(bet) %>
+                <div class="green-cube"><%=image_tag("homerwin.png", height: '62')%></div>
+              <% else %>
+                <div class="red-cube"><%=image_tag("lisalose.png", height: '63')%></div>
+              <% end  %>
             <% end %>
 
             <% if bet.lost? %>
-              <div class="red-cube"></div>
+              <% if current_user.bet_creator?(bet) %>
+                <div class="red-cube"><%=image_tag("lisalose.png", height: '63')%></div>
+              <% else %>
+                <div class="green-cube"><%=image_tag("homerwin.png", height: '62')%></div>
+              <% end  %>
             <% end %>
 
+
+
+
+       <!--  description -->
             <div class="in-bet">
-              <p><strong>Adversaire : </strong><%= bet.receiver_email %></p>
+              <% if current_user.bet_creator?(bet) %>
+                <p><strong>Adversaire : </strong><%= bet.receiver_email %></p>
+              <% else %>
+                <p><strong>Adversaire : </strong><%= bet.user.username %></p>
+              <% end  %>
               <p><strong>Mise : </strong><%= bet.bet_value %></p>
               <p><strong>Fin : </strong><%= bet.end_date_of_bet %></p>
               <%= link_to "Voir le pari", bet_url(bet), class: "btn btn-warning btn-lg banner-button" %>

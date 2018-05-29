@@ -22,6 +22,7 @@ class BetsController < ApplicationController
   end
 
   def create
+    #parsed_params = DateTime.parse(:end_date_of_bet)
     @bet = current_user.bets.new(bet_params)
 
     if @bet.save
