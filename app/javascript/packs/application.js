@@ -6,18 +6,11 @@ import { French } from "flatpickr/dist/l10n/fr.js"
 
 const element = document.querySelector('#bet_end_date_of_bet')
 
-if (element) {
-  flatpickr(element, {
+flatpickr(element, {
+  "locale": French,
   minDate: "today",
-  dateFormat: "Y-m-d",
-  altInput: true,
-  locale: {
-        firstDayOfWeek: 1
-          }
+  dateFormat: "d M Y"
 
 });
-}
-flatpickr(element, {
-    "locale": French // locale for this instance only
-});
+
 
