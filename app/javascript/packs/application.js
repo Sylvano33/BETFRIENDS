@@ -9,7 +9,7 @@ const element = document.querySelector('#bet_end_date_of_bet')
 flatpickr(element, {
   "locale": French,
   minDate: "today",
-  dateFormat: "d M Y"
+  dateFormat: "d-m-y"
 
 });
 
