@@ -55,6 +55,10 @@ class BetsController < ApplicationController
     redirect_to bets_path
   end
 
+  def destroy_all
+    Bet.destroy.all
+  end
+
   # def destroy_if_unaccepted
   #   @bet = Bet.find(params[:id])
   #   deadline_acceptation = @bet.created_at + hour_countdown

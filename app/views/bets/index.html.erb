@@ -41,11 +41,7 @@
               <p><strong>Fin : </strong><%= bet.end_date_of_bet %></p>
               <%= link_to "Voir le pari", bet_url(bet), class: "btn btn-warning btn-lg banner-button" %>
               <p> Ce bet a été créé par <strong> <%= bet.user.username %> </strong></p>
-              <p><%= deadline = bet.deadline_acceptation %></p>
-
-
-
-
+              <p> <%= bet.deadline_hour %></p>
             </div>
 
             <a class="index-link" href="#" ></a>

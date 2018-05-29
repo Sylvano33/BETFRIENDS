@@ -4,8 +4,6 @@ class Bet < ApplicationRecord
   enum status: [ :pending, :accepted, :refused, :won, :lost ]
   # scope :won, ->{ where status: :won }
 
-
-
   validates :description, presence: true
   validates :bet_value, presence: true
   validates :receiver_email, presence: true
@@ -16,6 +14,13 @@ class Bet < ApplicationRecord
 
   after_create :send_bet_email
   after_create :set_deadline_acceptation
+
+  def deadline_hour
+    deadline = self.deadline_acceptation.to_s.to_datetime + (Time.now.gmt_offset/3600).hours
+    deadline.strftime("%v %r")
+  end
+
+
 
   private
 
