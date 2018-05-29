@@ -1,3 +1,5 @@
+require 'active_support/core_ext/numeric/time.rb'
+
 class BetsController < ApplicationController
   # after_action :redirect_to bets_path if: :Bet.update, only: :show
   # after_action :redirect, only: [:update]
@@ -22,6 +24,8 @@ class BetsController < ApplicationController
     @bet = current_user.bets.new(bet_params)
 
     if @bet.save
+      @bet.deadline_acceptation = @bet.created_at.to_datetime + 10.hours
+      byebug
       BetMailer.newbet(@bet).deliver_now
       BetMailer.enddate(@bet).deliver_later(wait_until: 1.minute.from_now)
       redirect_to bets_path
@@ -53,6 +57,16 @@ class BetsController < ApplicationController
     @bet.destroy
     redirect_to bets_path
   end
+
+  # def destroy_if_unaccepted
+  #   @bet = Bet.find(params[:id])
+  #   deadline_acceptation = @bet.created_at + hour_countdown
+
+  #   until @bet.status = pending
+  #     if Date.now > datetime_validation_deadline
+  #       @bet.destroy
+  # end
+
 
   private
 
