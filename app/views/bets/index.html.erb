@@ -6,7 +6,7 @@
 
     <% @bets.each do |bet| %>
     <!-- à enlever -->
-    <p> Ce bet a été créé par <strong> <%= bet.user.username %> </strong></p>
+    <!-- <p> Ce bet a été créé par <strong> <%= bet.user.username %> </strong></p> -->
     <!-- à enlever -->
 
 
@@ -30,7 +30,7 @@
 
             <% if bet.won? %>
               <% if current_user.bet_creator?(bet) %>
-                <div class="green-cube"></div>
+                <div class="green-cube"><%=image_tag("award.png")%></div>
               <% else %>
                 <div class="red-cube"></div>
               <% end  %>
@@ -40,9 +40,12 @@
               <% if current_user.bet_creator?(bet) %>
                 <div class="red-cube"></div>
               <% else %>
-                <div class="green-cube"></div>
+                <div class="green-cube"><%=image_tag("award.png")%></div>
               <% end  %>
             <% end %>
+
+
+
 
        <!--  description -->
             <div class="in-bet">

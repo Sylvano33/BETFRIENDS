@@ -69,13 +69,13 @@
   <% if @bet.pending? %>
     <% if current_user.bet_creator?(@bet) %>
       <div class="abstract-box">
-        <p>
+        <div class="alert-box"><p>
           Tu as parié <strong><%= @bet.bet_value %></strong> contre ton ami que <strong><%= @bet.description %></strong>.
-        </p>
+        </p></div>
 
-        <p>
+        <div class="alert-box"><p>
           Ton adversaire a <strong><%= @bet.hour_countdown %> heures</strong> pour accepter ou refuser le BET.
-        </p>
+        </p></div>
 
         <div class="alert-box">
           Le pari prendra fin le <strong><%= @bet.end_date_of_bet %></strong>
@@ -84,13 +84,13 @@
       </div>
     <% else %>
       <div class="abstract-box">
-        <p>
+        <div class="alert-box"><p>
           <strong><%= @bet.user.username %></strong> est prêt à parier <strong><%= @bet.bet_value %></strong> que <strong><%= @bet.description %></strong>.
-        </p>
+        </p></div>
 
-        <p>
+        <div class="alert-box"><p>
           Tu as <strong><%= @bet.hour_countdown %> heures</strong> pour accepter ou refuser le BET.
-        </p>
+        </p></div>
 
         <div class="alert-box">
           Le pari prendra fin le <strong><%= @bet.end_date_of_bet %></strong>
@@ -106,13 +106,13 @@
   <% if @bet.accepted? %>
     <% if current_user.bet_creator?(@bet) %>
       <div class="abstract-box">
-        <p>
+        <div class="alert-box"><p>
           Tu as parié <strong><%= @bet.bet_value %></strong> contre ton ami que <strong><%= @bet.description %></strong>.
-        </p>
+        </p></div>
 
-        <p>
+        <div class="alert-box"><p>
           Ton adversaire a accepté le BET, que le meilleur gagne!
-        </p>
+        </p></div>
 
         <div class="alert-box">
           Le pari prendra fin le <strong><%= @bet.end_date_of_bet %></strong>
@@ -121,13 +121,13 @@
       </div>
     <% else %>
       <div class="abstract-box">
-        <p>
+        <div class="alert-box"><p>
           <strong><%= @bet.user.username %></strong> t'a parié <strong><%= @bet.bet_value %></strong> que <strong><%= @bet.description %></strong>.
-        </p>
+        </p></div>
 
-        <p>
+        <div class="alert-box"><p>
           Tu as accepté le BET, que le meilleur gagne!
-        </p>
+        </p></div>
 
         <div class="alert-box">
           Le pari prendra fin le <strong><%= @bet.end_date_of_bet %></strong>
@@ -145,11 +145,11 @@
   <% if @bet.won? %>
     <% if current_user.bet_creator?(@bet) %>
       <div class="abstract-box">
-        <p>
+        <div class="alert-box"><p>
           Tu avais parié contre ton ami que <strong><%= @bet.description %></strong>.
-        </p>
+        </p></div>
 
-        <p>Tu as finalement remporter ce duel avec brio le <strong><%= @bet.end_date_of_bet %></strong>.</p>
+        <div class="alert-box"><p>Tu as finalement remporter ce duel avec brio le <strong><%= @bet.end_date_of_bet %></strong>.</p></div>
 
         <div class="alert-box">
           N'oublies pas ce que vous aviez misé... <%= @bet.bet_value %>.
@@ -158,16 +158,16 @@
       </div>
     <% else %>
       <div class="abstract-box">
-        <p>
+        <div class="alert-box"><p>
           <strong><%= @bet.user.username %></strong> avait parié que <strong><%= @bet.description %></strong>.
-        </p>
+        </p></div>
 
-        <p>
+        <div class="alert-box"><p>
           Tu as naivement accepté ce BET.
-        </p>
-        <p>
+        </p></div>
+        <div class="alert-box"><p>
           Tu t'es bien battu mais tu as fini par rendre les armes le <strong><%= @bet.end_date_of_bet %></strong>
-        </p>
+        </p></div>
 
         <div class="alert-box">
           N'oublies pas ce que vous aviez misé... <%= @bet.bet_value %>.
@@ -182,17 +182,17 @@
   <% if @bet.lost? %>
     <% if current_user.bet_creator?(@bet) %>
       <div class="abstract-box">
-        <p>
+        <div class="alert-box"><p>
           <strong><%= @bet.user.username %></strong> avait parié que <strong><%= @bet.description %></strong>.
-        </p>
+        </p></div>
 
-        <p>
+        <div class="alert-box"><p>
           Tu as naivement accepté ce BET.
-        </p>
+        </p></div>
 
-        <p>
+        <div class="alert-box"><p>
           Tu t'es bien battu mais tu as fini par rendre les armes le <strong><%= @bet.end_date_of_bet %></strong>
-        </p>
+        </p></div>
 
         <div class="alert-box">
           N'oublies pas ce que vous aviez misé... <%= @bet.bet_value %>.
@@ -201,11 +201,11 @@
       </div>
     <% else %>
       <div class="abstract-box">
-        <p>
+        <div class="alert-box"><p>
           Tu avais parié contre ton ami que <strong><%= @bet.description %></strong>.
-        </p>
+        </p></div>
 
-        <p>Tu as finalement remporter ce duel avec brio le <strong><%= @bet.end_date_of_bet %></strong>.</p>
+        <div class="alert-box"><p>Tu as finalement remporter ce duel avec brio le <strong><%= @bet.end_date_of_bet %></strong>.</p></div>
 
         <div class="alert-box">
           N'oublies pas ce que vous aviez misé... <%= @bet.bet_value %>.
@@ -225,8 +225,15 @@
   <div class="pink-button-box">
     <% if @bet.pending? %>
       <% if current_user.bet_creator?(@bet) %>
-        <h3>Ton adversaire est lent?</h3>
-        <h4>N'hésite pas à le harceler.</h4>
+        <div class="alert-box">
+          <h4>Ton adversaire est lent?</h4>
+          <h5>N'hésite pas à le harceler en lui envoyant le lien ci dessous:</h5>
+          <div class="stabil2"></div>
+        </div>
+        <!-- lien à envoyer -->
+        <div class="alert-box">
+          <h5>Mettre LIEN ICI</h5>
+        </div>
       <% else %>
         <%= link_to "Accepter le BET", bet_path(@bet, bet: {status: "accepted", receiver_email: @bet.receiver_email}), method: :put, class: "btn btn-warning btn-block" %>
         <%= link_to "Refuser le BET", bet_path(@bet, bet: {status: "refused", receiver_email: @bet.receiver_email }), method: :put, class: "btn btn-primary btn-block" %>
