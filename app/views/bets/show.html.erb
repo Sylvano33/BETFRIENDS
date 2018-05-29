@@ -232,7 +232,8 @@
         </div>
         <!-- lien à envoyer -->
         <div class="alert-box">
-          <h5>Mettre LIEN ICI</h5>
+          <input class="border-link" type="text" value= <%= bet_url(@bet) %> id="myInput">
+          <button class="border-link" onclick="myFunction()">Copy text</button>
         </div>
       <% else %>
         <%= link_to "Accepter le BET", bet_path(@bet, bet: {status: "accepted", receiver_email: @bet.receiver_email}), method: :put, class: "btn btn-warning btn-block" %>
