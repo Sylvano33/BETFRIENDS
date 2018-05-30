@@ -50,7 +50,7 @@
        <!--  description -->
             <div class="in-bet">
               <% if current_user.bet_creator?(bet) %>
-                <p><strong>Adversaire : </strong><%= bet.receiver_email %></p>
+                <p><strong>Adversaire : </strong><%= bet.receiver_firstname %></p>
               <% else %>
                 <p><strong>Adversaire : </strong><%= bet.user.username %></p>
               <% end  %>
@@ -83,7 +83,7 @@
       </div>
 
       <% if current_user.win_rate == 0 %>
-        <div class="in-foot-circle-green">
+        <div class="in-foot-circle-red">
           <strong>0</strong> <em>%</em>
         </div>
       <% elsif current_user.win_rate > 50 %>
