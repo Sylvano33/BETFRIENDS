@@ -1,0 +1,6 @@
+# config/meta.yml
+
+meta_product_name: "Betfriends"
+meta_title: "Betfriends- Ne perdez plus vos paris gagnés !"
+meta_description: "Betfriends enregistre tous vos paris entre amis, vous envoie des rappels, et vous donne votre score de parieur"
+meta_image: "logo1.png"                       # should exist in `app/assets/images/`
