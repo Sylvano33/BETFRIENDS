@@ -67,12 +67,39 @@
       </div>
     <% end %>
 
-    <div class="white-cube"></div>
+    <div class="white-cube"></div> <!-- pour ajouter du blanc lorsque aucun pari -->
 
   </div>
 
-  <div class="foot">
-    <div class="in-foot"><em>Victoires : </em> <strong><%= current_user.won_bets_count %></strong></div>
-    <div class="in-foot"><em>Défaites : </em> <strong><%= current_user.lost_bets_count %></strong></div>
-  </div>
-</div>
+
+<!-- footer  -->
+    <div class="foot-pink">
+      <div class="in-foot">
+        <em>Victoires : </em> <strong><%= current_user.won_bets_count %></strong>
+      </div>
+
+      <% if current_user.win_rate.to_i > 50 %>
+        <div class="in-foot-circle-green">
+          <strong><%= current_user.win_rate.to_i %></strong> <em>%</em>
+        </div>
+      <% else %>
+        <div class="in-foot-circle-red">
+          <strong><%= current_user.win_rate.to_i %></strong> <em>%</em>
+        </div>
+      <% end %>
+
+      <div class="in-foot"><em>Défaites : </em> <strong><%= current_user.lost_bets_count %></strong></div>
+    </div>
+
+
+
+
+<!-- barre rouge -->
+  <!-- <div class="foot"></div> -->
+<!-- barre verte -->
+
+
+
+
+
+
