@@ -43,7 +43,7 @@ class BetsController < ApplicationController
     receiver = User.find_by(email: bet.receiver_email)
     if receiver
       bet.update(bet_params)
-      UserBet.create(user: receiver, bet: bet) if params[:status] == :pending
+      UserBet.create(user: receiver, bet: bet) if bet_params[:status] == "accepted"
       redirect_to bets_path
     else
       redirect_to new_user_registration_path
