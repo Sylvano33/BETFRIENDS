@@ -6,12 +6,12 @@
     <title>BET FRIENDS</title>
     <link rel="icon" type="image/png" href="logo.png" />
     <%= csrf_meta_tags %>
+    <%= render 'application/favicon' %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_pack_tag 'application' %>
   </head>
   <body>
-    <%= render 'application/favicon' %>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
