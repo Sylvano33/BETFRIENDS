@@ -50,11 +50,11 @@ class BetsController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @bet = Bet.find(params[:id])
-  #   @bet.destroy
-  #   redirect_to bets_path
-  # end
+  def destroy
+    @bet = Bet.find(params[:id])
+    @bet.destroy
+    redirect_to bets_path
+  end
 
 
 
