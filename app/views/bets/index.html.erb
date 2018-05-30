@@ -57,8 +57,12 @@
               <p><strong>Mise : </strong><%= bet.bet_value %></p>
               <p><strong>Fin : </strong><%= bet.end_date_of_bet %></p>
               <%= link_to "Voir le pari", bet_url(bet), class: "btn btn-warning btn-lg banner-button" %>
-              <p> Ce bet a été créé par <strong> <%= bet.user.username %> </strong></p>
-              <p> <%= bet.deadline_hour %></p>
+
+              <!-- à enlever -->
+              <!-- <p> Ce bet a été créé par <strong> <%= bet.user.username %> </strong></p>
+              <p> <%= bet.deadline_hour %></p> -->
+              <!-- à enlever -->
+
             </div>
 
             <a class="index-link" href="#" ></a>
@@ -78,11 +82,15 @@
         <em>Victoires : </em> <strong><%= current_user.won_bets_count %></strong>
       </div>
 
-      <% if current_user.win_rate.to_i > 50 %>
+      <% if current_user.win_rate == 0 %>
+        <div class="in-foot-circle-green">
+          <strong>0</strong> <em>%</em>
+        </div>
+      <% elsif current_user.win_rate > 50 %>
         <div class="in-foot-circle-green">
           <strong><%= current_user.win_rate.to_i %></strong> <em>%</em>
         </div>
-      <% else %>
+      <% elsif current_user.win_rate < 50 %>
         <div class="in-foot-circle-red">
           <strong><%= current_user.win_rate.to_i %></strong> <em>%</em>
         </div>
