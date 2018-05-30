@@ -8,7 +8,22 @@
     <%= simple_form_for [@bet] do |f| %>
       <div class="register-box"><%= f.input :description, label: false, :required => false, placeholder: "La France va gagner la Coupe du Monde" %></div>
       <div class="register-box"><%= f.input :bet_value, label: false, :required => false, placeholder: "Mise: Une bière? Un resto? 10 balles?" %></div>
-      <div class="register-box"><%= f.input :hour_countdown, label: false, :required => false, as: :integer, placeholder: "48h pour accepter le pari"%></div>
+      <div><h5>Délais pour accepter le pari</h5></div>
+      <div class="register-box">
+        <%= f.input :hour_countdown,
+            label: false,
+            required: false,
+            as: :range,
+            input_html: {
+              min: "1",
+              max: "24",
+              step: "1",
+              class: "slider",
+              id: "hour-range"
+            },
+            placeholder: "24h pour accepter le pari" %>
+            <p>Nombre d'heures : <span id="range-value"></span></p>
+      </div>
 
       <div class="register-box"><%= f.input :end_date_of_bet, label: false, :required => false, placeholder: "Date de fin du pari",as: :string, imput_html: { class: "datepicker" } %></div>
 
