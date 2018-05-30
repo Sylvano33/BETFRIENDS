@@ -37,15 +37,15 @@ class BetsController < ApplicationController
     @bet = Bet.find(params[:id])
   end
 
+
   def update
     bet = Bet.find(params[:id])
     receiver = User.find_by(email: bet.receiver_email)
     if receiver
       bet.update(bet_params)
-      UserBet.create(user: receiver, bet: bet)
+      UserBet.create(user: receiver, bet: bet) if bet_params[:status] == "accepted"
       redirect_to bets_path
     else
-      # l'utilisateur n'existe pas sign up + penser à creer le many to many dans UserBet
       redirect_to new_user_registration_path
     end
   end
@@ -55,18 +55,6 @@ class BetsController < ApplicationController
     @bet.destroy
     redirect_to bets_path
   end
-
-
-
-  # def destroy_if_unaccepted
-  #   @bet = Bet.find(params[:id])
-  #   deadline_acceptation = @bet.created_at + hour_countdown
-
-  #   until @bet.status = pending
-  #     if Date.now > datetime_validation_deadline
-  #       @bet.destroy
-  # end
-
 
   private
 
