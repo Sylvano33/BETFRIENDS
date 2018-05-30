@@ -13,7 +13,7 @@ if (element) {
   flatpickr(element, {
     "locale": French,
     minDate: "today",
-    dateFormat: "d M Y",
+    dateFormat: "d-m-y",
     disableMobile: true
   });
 }
