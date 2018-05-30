@@ -58,7 +58,7 @@ class User < ApplicationRecord
 
   def win_rate
     total_match = won_bets_count + lost_bets_count
-    if total_match = 0
+    if total_match.blank?
       win_rate = 0
     else
       win_rate = (won_bets_count / total_match.to_f) * 100
