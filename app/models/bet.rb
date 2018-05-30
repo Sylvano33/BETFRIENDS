@@ -21,7 +21,7 @@ class Bet < ApplicationRecord
   end
 
   def self.unaccepted
-    where('deadline_acceptation < ?', Time.zone.now )
+    where('deadline_acceptation < ?', Time.zone.now ).where(status: "pending")
   end
 
 
