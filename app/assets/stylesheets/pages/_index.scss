@@ -114,16 +114,16 @@
   // opacity: 0.3;
 }
 
-// .foot {
-//    position: fixed;
-//    bottom: 0;
-//    width: 100%;
-//    height: 50px;
-//    background: $orange;
-//    padding: 12px;
-//    display: flex;
-//    justify-content: space-between;
-// }
+.foot-pink {
+   position: fixed;
+   bottom: 0;
+   width: 100%;
+   height: 50px;
+   background: $orange;
+   padding: 12px;
+   display: flex;
+   justify-content: space-between;
+}
 
 .foot {
    position: fixed;
@@ -138,6 +138,29 @@
 
 .in-foot {
   color: white;
+}
+
+.in-foot-circle-red {
+  color: white;
+  background-color: $red;
+  height: 60px;
+  width: 60px;
+  border:2px solid white;
+  border-radius: 50%;
+  display: flex;
+  padding: 17px;
+  margin-top: -18px;
+}
+.in-foot-circle-green {
+  color: white;
+  background-color: $green;
+  height: 60px;
+  width: 60px;
+  border:2px solid white;
+  border-radius: 50%;
+  display: flex;
+  padding: 17px;
+  margin-top: -18px;
 }
 
 // nouveau bout dessous
@@ -227,12 +250,15 @@
   padding: 12px;
   display: flex;
   justify-content: space-between;
-  animation-name: growhundred;
-  animation-duration: 4s;
-  animation-timing-function: linear;
+  animation: line 1s linear forwards;
   // animation-iteration-count: 1;
 }
 
-@keyframes growhundred {
-  100% { width: 100%; };
+@keyframes line {
+  from {
+    width:80%;
+  }
+  to {
+    width:100%;
+  }
 }
