@@ -112,19 +112,11 @@
         <div class="in-foot-circle-red">
           <strong>0</strong> <em>%</em>
         </div>
-<<<<<<< HEAD
-      <% elsif current_user.win_rate.to_i > 50 %>
-        <div class="in-foot-circle-green">
-          <strong><%= current_user.win_rate.to_i %></strong> <em>%</em>
-        </div>
-      <% else %>
-=======
-      <% elsif current_user.win_rate > 69 %>
+      <% elsif current_user.win_rate >= 69 %>
         <div class="in-foot-circle-green">
           <strong><%= current_user.win_rate.to_i %></strong> <em>%</em>
         </div>
       <% elsif current_user.win_rate <= 35 %>
->>>>>>> 6fe8032c44e6a2b26d6e04b257ea4c9c244dabd4
         <div class="in-foot-circle-red">
           <strong><%= current_user.win_rate.to_i %></strong> <em>%</em>
         </div>
