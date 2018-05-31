@@ -9,6 +9,7 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.1.6'
 gem 'redis'
+gem 'rails-i18n', '~> 5.1'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
@@ -19,6 +20,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem "letter_opener", group: :development
 gem 'activesupport'
+gem 'devise-i18n'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

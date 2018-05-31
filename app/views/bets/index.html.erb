@@ -45,6 +45,32 @@
             <% end %>
 
 
+            <!-- status -->
+            <% if bet.pending? %>
+              <div class="status-pending"><p>En attente</p></div>
+              <!-- <div class="back-status-pending-grey"></p></div> -->
+            <% end %>
+
+            <% if bet.accepted? %>
+              <div class="status"><p>Accepté</p></div>
+             <!--  <div class="back-status-pending-pink"></p></div> -->
+            <% end %>
+
+            <% if bet.won? %>
+              <% if current_user.bet_creator?(bet) %>
+                <div class="status"><p>Gagné</p></div>
+              <% else %>
+                <div class="status"><p>Perdu</div>
+              <% end  %>
+            <% end %>
+
+            <% if bet.lost? %>
+              <% if current_user.bet_creator?(bet) %>
+                <div class="status"><p>Perdu</p></div>
+              <% else %>
+                <div class="status"><p>Gagné</p></div>
+              <% end  %>
+            <% end %>
 
 
        <!--  description -->
@@ -55,7 +81,7 @@
                 <p><strong>Adversaire : </strong><%= bet.user.username %></p>
               <% end  %>
               <p><strong>Mise : </strong><%= bet.bet_value %></p>
-              <p><strong>Fin : </strong><%= bet.end_date_of_bet %></p>
+              <p><strong>Fin : </strong><%= l(bet.end_date_of_bet, format: :long) %></p>
               <%= link_to "Voir le pari", bet_url(bet), class: "btn btn-warning btn-lg banner-button" %>
 
               <!-- à enlever -->
@@ -86,12 +112,24 @@
         <div class="in-foot-circle-red">
           <strong>0</strong> <em>%</em>
         </div>
+<<<<<<< HEAD
       <% elsif current_user.win_rate.to_i > 50 %>
         <div class="in-foot-circle-green">
           <strong><%= current_user.win_rate.to_i %></strong> <em>%</em>
         </div>
       <% else %>
+=======
+      <% elsif current_user.win_rate > 69 %>
+        <div class="in-foot-circle-green">
+          <strong><%= current_user.win_rate.to_i %></strong> <em>%</em>
+        </div>
+      <% elsif current_user.win_rate <= 35 %>
+>>>>>>> 6fe8032c44e6a2b26d6e04b257ea4c9c244dabd4
         <div class="in-foot-circle-red">
+          <strong><%= current_user.win_rate.to_i %></strong> <em>%</em>
+        </div>
+      <% else %>
+        <div class="in-foot-circle-orange">
           <strong><%= current_user.win_rate.to_i %></strong> <em>%</em>
         </div>
       <% end %>
