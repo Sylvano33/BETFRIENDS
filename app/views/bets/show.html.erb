@@ -75,7 +75,7 @@
         </p></div>
 
         <div class="alert-box"><p>
-          Le BET s'autodétruira dans
+          Le BET s'autodétruira dans:
         </p></div>
 
         <div class="alert-box">
@@ -104,7 +104,7 @@
   <% end %>
 
 
-    <!-- phrase en attente résultat -->
+    <!-- phrase ACCEPETED en attente résultat -->
 
   <% if @bet.accepted? %>
     <% if current_user.bet_creator?(@bet) %>
@@ -133,9 +133,9 @@
         </p></div>
 
         <div class="alert-box">
+          Le pari prendra fin le <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong>
           <div class="stabil2"></div>
         </div>
-          Le pari prendra fin le <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong>
       </div>
     <% end %>
   <% end %>
