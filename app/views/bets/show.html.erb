@@ -3,9 +3,6 @@
 
 <!-- icones de status -->
   <div class="alert-box">
-    <% if @bet.pending? %>
-     <%=image_tag("alert2.png", height: '100', width: '110')%>
-    <% end %>
     <% if @bet.accepted? %>
      <%=image_tag("time.png", height: '120', width: '120')%>
     <% end %>
@@ -74,15 +71,25 @@
           Tu as parié <strong><%= @bet.bet_value %></strong> contre ton ami que <strong><%= @bet.description %></strong>.
         </p></div>
 
-        <div class="alert-box"><p>
-          Le BET s'autodétruira dans
-        </p></div>
-
         <div class="alert-box">
-          <div class="hidden" id="start-time"><%= Time.at(@bet.deadline_acceptation - Time.zone.now) %></div>
-          <div id="countdown"></div>
+          <h5>Ce BET s'autodétruira dans :</h5>
+          <div id="clockdiv" data-date="<%= @bet.deadline_hour %>">
+            <div>
+              <span class="hours"></span>
+              <div class="smalltext">Hours</div>
+            </div>
+            <div>
+              <span class="minutes"></span>
+              <div class="smalltext">Minutes</div>
+            </div>
+            <div>
+              <span class="seconds"></span>
+              <div class="smalltext">Seconds</div>
+            </div>
+          </div>
 
-          <div class="stabil2"></div>
+
+          <!-- <div class="stabil2"></div> -->
         </div>
       </div>
     <% else %>
