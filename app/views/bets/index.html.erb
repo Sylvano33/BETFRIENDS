@@ -48,10 +48,12 @@
             <!-- status -->
             <% if bet.pending? %>
               <div class="status-pending"><p>En attente</p></div>
+              <div class="back-status-pending"></p></div>
             <% end %>
 
             <% if bet.accepted? %>
               <div class="status"><p>Accepté</p></div>
+              <div class="back-status-pending"></p></div>
             <% end %>
 
             <% if bet.won? %>
