@@ -90,6 +90,16 @@
   width: 70px;
 }
 
+.back-status-pending {
+  position: absolute;
+  bottom: -4px;
+  right: -3px;
+  height: 100%;
+  width: 100%;
+  background-color: #A9A9A9;
+  opacity: 0.1;
+}
+
 .green-cube {
   position: absolute;
   bottom: 10px;
