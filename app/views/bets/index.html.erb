@@ -45,6 +45,30 @@
             <% end %>
 
 
+            <!-- status -->
+            <% if bet.pending? %>
+              <div class="status-pending"><p>En attente</p></div>
+            <% end %>
+
+            <% if bet.accepted? %>
+              <div class="status"><p>Accepté</p></div>
+            <% end %>
+
+            <% if bet.won? %>
+              <% if current_user.bet_creator?(bet) %>
+                <div class="status"><p>Gagné</p></div>
+              <% else %>
+                <div class="status"><p>Perdu</div>
+              <% end  %>
+            <% end %>
+
+            <% if bet.lost? %>
+              <% if current_user.bet_creator?(bet) %>
+                <div class="status"><p>Perdu</p></div>
+              <% else %>
+                <div class="status"><p>Gagné</p></div>
+              <% end  %>
+            <% end %>
 
 
        <!--  description -->

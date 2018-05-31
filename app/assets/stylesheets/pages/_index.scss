@@ -74,6 +74,21 @@
   height: calc(100vh - 70px);
 }
 
+.status {
+  position: absolute;
+  bottom: 33px;
+  right: 14px;
+  height: 52px;
+  width: 70px;
+}
+
+.status-pending {
+  position: absolute;
+  bottom: 59px;
+  right: 14px;
+  height: 52px;
+  width: 70px;
+}
 
 .green-cube {
   position: absolute;

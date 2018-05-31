@@ -7,7 +7,7 @@
 
     <%= simple_form_for [@bet] do |f| %>
       <div class="register-box"><%= f.input :description, label: false, :required => false, placeholder: "Ton BET: La France va gagner la Coupe du Monde" %></div>
-      <div class="register-box"><%= f.input :bet_value, label: false, :required => false, placeholder: "Mise: Une bière? Un resto? 10 balles?" %></div>
+      <div class="register-box"><%= f.input :bet_value, label: false, :required => false, placeholder: "Mise: Une bière? Un donnuts? 10 balles?" %></div>
       <div><h5>Délai pour accepter le pari</h5></div>
       <div class="register-box">
         <%= f.input :hour_countdown,
