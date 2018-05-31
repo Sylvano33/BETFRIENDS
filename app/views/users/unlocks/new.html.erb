@@ -1,11 +1,4 @@
-<div class="login-page">
-  <div class="container">
-    <div class="home-box">
-      <h2><%= t(".resend_unlock_instructions") %></h2>
-      <div class="pink-stripe"></div>
-    </div>
-
-
+<h2><%= t(".resend_unlock_instructions") %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
   <%= f.error_notification %>
@@ -20,7 +13,4 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
-
-  </div>
-</div>
+<%= render "users/shared/links" %>

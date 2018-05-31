@@ -1,5 +1,13 @@
-<p>Welcome <%= @email %>!</p>
+<div class="login-page">
+  <div class="container">
+    <div class="home-box">
+      <h2><%= t('.greeting', recipient: @email) %></h2>
+      <div class="pink-stripe"></div>
+    </div>
 
-<p>You can confirm your account email through the link below:</p>
+<p><%= t('.instruction') %></p>
+<p><%= link_to t('.action'), confirmation_url(@resource, confirmation_token: @token) %></p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+</div>
+</div>
+

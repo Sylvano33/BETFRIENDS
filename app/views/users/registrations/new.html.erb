@@ -1,10 +1,4 @@
-<div class="login-page">
-  <div class="container">
-    <div class="home-box">
-      <h2><%= t(".sign_up") %></h2>
-      <div class="pink-stripe"></div>
-    </div>
-
+<h2><%= t(".sign_up") %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -20,8 +14,4 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
-
-  </div>
-</div>
-
+<%= render "users/shared/links" %>
