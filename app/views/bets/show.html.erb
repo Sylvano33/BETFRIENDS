@@ -1,5 +1,6 @@
 <div class="abstract">
 
+
 <!-- icones de status -->
   <div class="alert-box">
     <% if @bet.pending? %>
@@ -78,7 +79,7 @@
         </p></div>
 
         <div class="alert-box">
-          Le pari prendra fin le <strong><%= @bet.end_date_of_bet %></strong>
+          Le pari prendra fin le <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong>
           <div class="stabil2"></div>
         </div>
       </div>
@@ -93,7 +94,7 @@
         </p></div>
 
         <div class="alert-box">
-          Le pari prendra fin le <strong><%= @bet.end_date_of_bet %></strong>
+          Le pari prendra fin le <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong>
           <div class="stabil2"></div>
         </div>
       </div>
@@ -115,7 +116,7 @@
         </p></div>
 
         <div class="alert-box">
-          Le pari prendra fin le <strong><%= @bet.end_date_of_bet %></strong>
+          Le pari prendra fin le <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong>
           <div class="stabil2"></div>
         </div>
       </div>
@@ -130,7 +131,7 @@
         </p></div>
 
         <div class="alert-box">
-          Le pari prendra fin le <strong><%= @bet.end_date_of_bet %></strong>
+          Le pari prendra fin le <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong>
           <div class="stabil2"></div>
         </div>
       </div>
@@ -149,7 +150,7 @@
           Tu avais parié contre ton ami que <strong><%= @bet.description %></strong>.
         </p></div>
 
-        <div class="alert-box"><p>Tu as finalement remporter ce duel avec brio le <strong><%= @bet.end_date_of_bet %></strong>.</p></div>
+        <div class="alert-box"><p>Tu as finalement remporter ce duel avec brio le <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong>.</p></div>
 
         <div class="alert-box">
           N'oublies pas ce que vous aviez misé... <%= @bet.bet_value %>.
@@ -166,7 +167,7 @@
           Tu as naivement accepté ce BET.
         </p></div>
         <div class="alert-box"><p>
-          Tu t'es bien battu mais tu as fini par rendre les armes le <strong><%= @bet.end_date_of_bet %></strong>
+          Tu t'es bien battu mais tu as fini par rendre les armes le <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong>
         </p></div>
 
         <div class="alert-box">
@@ -191,7 +192,7 @@
         </p></div>
 
         <div class="alert-box"><p>
-          Tu t'es bien battu mais tu as fini par rendre les armes le <strong><%= @bet.end_date_of_bet %></strong>
+          Tu t'es bien battu mais tu as fini par rendre les armes le <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong>
         </p></div>
 
         <div class="alert-box">
@@ -205,7 +206,7 @@
           Tu avais parié contre ton ami que <strong><%= @bet.description %></strong>.
         </p></div>
 
-        <div class="alert-box"><p>Tu as finalement remporter ce duel avec brio le <strong><%= @bet.end_date_of_bet %></strong>.</p></div>
+        <div class="alert-box"><p>Tu as finalement remporter ce duel avec brio le <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong>.</p></div>
 
         <div class="alert-box">
           N'oublies pas ce que vous aviez misé... <%= @bet.bet_value %>.
@@ -232,8 +233,8 @@
         </div>
         <!-- lien à envoyer -->
         <div class="alert-box-url">
-          <input class="border-link" type="text" value= <%= bet_url(@bet) %> id="myInput">
-          <button class="border-link" onclick="myFunction()">Copy text</button>
+          <input class="border-link" type="text" value= <%= bet_url(@bet) %> id="url">
+          <button class="btn copy" data-clipboard-target="#url">Copy URL</button>
         </div>
 
       <% else %>
