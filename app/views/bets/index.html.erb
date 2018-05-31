@@ -86,12 +86,16 @@
         <div class="in-foot-circle-red">
           <strong>0</strong> <em>%</em>
         </div>
-      <% elsif current_user.win_rate > 50 %>
+      <% elsif current_user.win_rate > 69 %>
         <div class="in-foot-circle-green">
           <strong><%= current_user.win_rate.to_i %></strong> <em>%</em>
         </div>
-      <% elsif current_user.win_rate <= 50 %>
+      <% elsif current_user.win_rate <= 35 %>
         <div class="in-foot-circle-red">
+          <strong><%= current_user.win_rate.to_i %></strong> <em>%</em>
+        </div>
+      <% else %>
+        <div class="in-foot-circle-orange">
           <strong><%= current_user.win_rate.to_i %></strong> <em>%</em>
         </div>
       <% end %>
