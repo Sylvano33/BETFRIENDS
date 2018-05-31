@@ -55,7 +55,7 @@
                 <p><strong>Adversaire : </strong><%= bet.user.username %></p>
               <% end  %>
               <p><strong>Mise : </strong><%= bet.bet_value %></p>
-              <p><strong>Fin : </strong><%= bet.end_date_of_bet %></p>
+              <p><strong>Fin : </strong><%= l(bet.end_date_of_bet, format: :long) %></p>
               <%= link_to "Voir le pari", bet_url(bet), class: "btn btn-warning btn-lg banner-button" %>
 
               <!-- à enlever -->
