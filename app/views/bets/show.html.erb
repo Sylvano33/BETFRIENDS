@@ -75,11 +75,13 @@
         </p></div>
 
         <div class="alert-box"><p>
-          Ton adversaire a <strong><%= @bet.hour_countdown %> heures</strong> pour accepter ou refuser le BET.
+          Le BET s'autodétruira dans
         </p></div>
 
         <div class="alert-box">
-          Le pari prendra fin le <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong>
+          <div class="hidden" id="start-time"><%= Time.at(@bet.deadline_acceptation - Time.zone.now) %></div>
+          <div id="countdown"></div>
+
           <div class="stabil2"></div>
         </div>
       </div>
@@ -131,9 +133,9 @@
         </p></div>
 
         <div class="alert-box">
-          Le pari prendra fin le <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong>
           <div class="stabil2"></div>
         </div>
+          Le pari prendra fin le <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong>
       </div>
     <% end %>
   <% end %>
@@ -150,7 +152,7 @@
           Tu avais parié contre ton ami que <strong><%= @bet.description %></strong>.
         </p></div>
 
-        <div class="alert-box"><p>Tu as finalement remporter ce duel avec brio le <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong>.</p></div>
+        <div class="alert-box"><p>Tu as finalement remporté ce duel avec brio le <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong>.</p></div>
 
         <div class="alert-box">
           N'oublies pas ce que vous aviez misé... <%= @bet.bet_value %>.
@@ -231,6 +233,8 @@
           <h5>N'hésite pas à le harceler en lui envoyant le lien ci dessous:</h5>
           <div class="stabil2"></div>
         </div>
+        <!-- <div class="hidden" id="start-time"><%= Time.at(@bet.deadline_acceptation - Time.zone.now) %></div>
+        <div id="countdown"></div> -->
         <!-- lien à envoyer -->
         <div class="alert-box-url">
           <input class="border-link" type="text" value= <%= bet_url(@bet) %> id="url">
