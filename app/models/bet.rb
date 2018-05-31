@@ -16,7 +16,7 @@ class Bet < ApplicationRecord
   after_create :set_deadline_acceptation
 
   def deadline_hour
-    deadline = self.deadline_acceptation.to_s.to_datetime + (Time.zone.now.gmt_offset/3600).hours
+    deadline = self.deadline_acceptation.to_s.to_datetime + 2.hours
     deadline.strftime("%v %r")
   end
 
