@@ -10,7 +10,7 @@ class BetsController < ApplicationController
   end
 
   def index
-    @bets = current_user.bets.order(created_at: :desc) + current_user.receiver_bets.order(created_at: :desc)
+    @bets = (current_user.bets.order(created_at: :desc) + current_user.receiver_bets.order(created_at: :desc)).sort_by { |bet| bet.created_at }.reverse
   end
 
   def show
