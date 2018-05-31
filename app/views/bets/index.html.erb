@@ -82,7 +82,7 @@
        <!--  description -->
             <div class="in-bet">
               <% if current_user.bet_creator?(bet) %>
-                <p><strong>Adversaire : </strong><%= bet.receiver_firstname %></p>
+                <p><strong>Adversaire : </strong><%= bet.receiver_firstname %>, créé par <strong> <%= bet.user.username %></p>
               <% else %>
                 <p><strong>Adversaire : </strong><%= bet.user.username %></p>
               <% end  %>
@@ -90,10 +90,6 @@
               <p><strong>Fin : </strong><%= l(bet.end_date_of_bet, format: :long) %></p>
               <%= link_to "Voir le pari", bet_url(bet), class: "btn btn-warning btn-lg banner-button" %>
 
-              <!-- à enlever -->
-              <p> Ce bet a été créé par <strong> <%= bet.user.username %> </strong></p>
-
-              <!-- à enlever -->
 
             </div>
 
