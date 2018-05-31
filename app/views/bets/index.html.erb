@@ -114,22 +114,30 @@
         <em>Victoires : </em> <strong><%= current_user.won_bets_count %></strong>
       </div>
 
-      <% if current_user.win_rate.to_i == 0 %>
+
+      <% if current_user.win_rate.to_i == nil %>
         <div class="in-foot-circle-red">
           <strong>0</strong> <em>%</em>
         </div>
-      <% elsif current_user.win_rate >= 69 %>
-        <div class="in-foot-circle-green">
-          <strong><%= current_user.win_rate.to_i %></strong> <em>%</em>
-        </div>
-      <% elsif current_user.win_rate <= 35 %>
-        <div class="in-foot-circle-red">
-          <strong><%= current_user.win_rate.to_i %></strong> <em>%</em>
-        </div>
       <% else %>
-        <div class="in-foot-circle-orange">
-          <strong><%= current_user.win_rate.to_i %></strong> <em>%</em>
-        </div>
+
+        <% if current_user.win_rate.to_i == 0 %>
+          <div class="in-foot-circle-red">
+            <strong>0</strong> <em>%</em>
+          </div>
+        <% elsif current_user.win_rate >= 69 %>
+          <div class="in-foot-circle-green">
+            <strong><%= current_user.win_rate.to_i %></strong> <em>%</em>
+          </div>
+        <% elsif current_user.win_rate <= 35 %>
+          <div class="in-foot-circle-red">
+            <strong><%= current_user.win_rate.to_i %></strong> <em>%</em>
+          </div>
+        <% else %>
+          <div class="in-foot-circle-orange">
+            <strong><%= current_user.win_rate.to_i %></strong> <em>%</em>
+          </div>
+        <% end %>
       <% end %>
 
       <div class="in-foot"><em>Défaites : </em> <strong><%= current_user.lost_bets_count %></strong></div>
