@@ -20,6 +20,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem "letter_opener", group: :development
 gem 'activesupport'
+gem 'devise-i18n'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -114,11 +114,11 @@
         <em>Victoires : </em> <strong><%= current_user.won_bets_count %></strong>
       </div>
 
-      <% if current_user.win_rate == 0 %>
+      <% if current_user.win_rate.to_i == 0 %>
         <div class="in-foot-circle-red">
           <strong>0</strong> <em>%</em>
         </div>
-      <% elsif current_user.win_rate > 69 %>
+      <% elsif current_user.win_rate >= 69 %>
         <div class="in-foot-circle-green">
           <strong><%= current_user.win_rate.to_i %></strong> <em>%</em>
         </div>

@@ -59,6 +59,8 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.6.2)
+      devise (>= 4.4)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.7.1)
@@ -226,6 +228,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass (~> 3.3)
   devise
+  devise-i18n
   figaro
   font-awesome-sass (~> 5.0.9)
   jbuilder (~> 2.0)
