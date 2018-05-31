@@ -3,11 +3,13 @@
   <a href="/" class="navbar-wagon-brand">
     <%=image_tag "logo.png", height: 50 %>
   </a>
+  <div class=".navbar-wagon-item-nolink"> <h4><%= "#{current_user.username}" %></h4> </div>
 
   <!-- Right Navigation -->
 <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
+
 
       <!-- Links when logged in -->
       <%= link_to "Mes paris", bets_path, class: "navbar-wagon-item navbar-wagon-link" %>
@@ -27,8 +29,6 @@
           </ul>
         </div>
       </div>
-
-        <div class=".navbar-wagon-item-nolink"> <%= "#{current_user.username}" %> </div>
 
 
     <% else %>
