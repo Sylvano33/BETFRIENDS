@@ -90,25 +90,29 @@
   width: 70px;
 }
 
-.back-status-pending {
+.back-status-pending-grey {
   position: absolute;
   bottom: -4px;
   right: -3px;
   height: 100%;
   width: 100%;
   background-color: #A9A9A9;
-  opacity: 0.1;
+  opacity: 0.2;
+  border-radius: 3px;
 }
 
-.green-cube {
+.back-status-pending-pink {
   position: absolute;
-  bottom: 10px;
-  right: 23px;
-  height: 52px;
-  width: 52px;
-  background-color: $green;
-  // opacity: 0.3;
+  bottom: -4px;
+  right: -3px;
+  height: 100%;
+  width: 100%;
+  background-color: $orange;
+  opacity: 0.2;
+  border-radius: 3px;
 }
+
+
 
 .grey-cube {
   position: absolute;
