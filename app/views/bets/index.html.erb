@@ -115,12 +115,15 @@
       </div>
 
 
-      <% if current_user.win_rate.to_i == nil %>
+      <% if current_user.win_rate.nil? %>
+        <div class="in-foot-circle-red">
+          <strong>0</strong> <em>%</em>
+        </div>
+      <% elsif current_user.win_rate.to_f.nan? %>
         <div class="in-foot-circle-red">
           <strong>0</strong> <em>%</em>
         </div>
       <% else %>
-
         <% if current_user.win_rate.to_i == 0 %>
           <div class="in-foot-circle-red">
             <strong>0</strong> <em>%</em>
