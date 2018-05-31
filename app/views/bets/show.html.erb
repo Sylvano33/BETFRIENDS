@@ -92,8 +92,8 @@
               <div class="smalltext">Seconds</div>
             </div>
           </div>
-          <h5> ...ou tu as le possibilité de le détruire tant qu'il n'est pas accepté par <%= @bet.receiver_firstname %></h5>
-        <%= link_to "Détruire le pari", bet_path(@bet), method: :delete, class: "btn btn-primary btn-block" %>
+          <h5> ...ou tu as le possibilité de l'annuler tant qu'il n'est pas accepté par <%= @bet.receiver_firstname %></h5>
+        <%= link_to "Annuler le pari", bet_path(@bet), method: :delete, class: "btn btn-primary btn-block" %>
 
 
           <!-- <div class="stabil2"></div> -->
