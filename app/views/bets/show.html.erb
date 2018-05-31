@@ -28,6 +28,9 @@
      <!-- si lanceur -->
       <% if current_user.bet_creator?(@bet) %>
         <h3>Tu as envoyé un BET</h3>
+
+
+
      <!-- si receveur -->
       <% else %>
         <h3>Tu as reçu un BET</h3>
@@ -71,7 +74,6 @@
         <div class="alert-box"><p>
           Tu as parié <strong><%= @bet.bet_value %></strong> contre ton ami que <strong><%= @bet.description %></strong>.
         </p></div>
-        <div> test deadline heroku <%= @bet.deadline_hour %></div>
 
 
         <div class="alert-box">
@@ -90,6 +92,8 @@
               <div class="smalltext">Seconds</div>
             </div>
           </div>
+          <h5> ...ou tu as le possibilité de le détruire tant qu'il n'est pas accepté par <%= @bet.receiver_firstname %></h5>
+        <%= link_to "Détruire le pari", bet_path(@bet), method: :delete, class: "btn btn-primary btn-block" %>
 
 
           <!-- <div class="stabil2"></div> -->
