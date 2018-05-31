@@ -101,9 +101,26 @@
           <strong><%= @bet.user.username %></strong> est prêt à parier <strong><%= @bet.bet_value %></strong> que <strong><%= @bet.description %></strong>.
         </p></div>
 
-        <div class="alert-box"><p>
-          Tu as <strong><%= @bet.hour_countdown %> heures</strong> pour accepter ou refuser le BET.
-        </p></div>
+        <div class="alert-box">
+          <h5>Temps restant pour accepter :</h5>
+          <div id="clockdiv" data-date="<%= @bet.deadline_hour %>">
+            <div>
+              <span class="hours"></span>
+              <div class="smalltext">Hours</div>
+            </div>
+            <div>
+              <span class="minutes"></span>
+              <div class="smalltext">Minutes</div>
+            </div>
+            <div>
+              <span class="seconds"></span>
+              <div class="smalltext">Seconds</div>
+            </div>
+          </div>
+
+
+          <!-- <div class="stabil2"></div> -->
+        </div>
 
         <div class="alert-box">
           Le pari prendra fin le <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong>
