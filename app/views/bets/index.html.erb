@@ -22,25 +22,31 @@
 
             <% if bet.pending? %>
               <div class="grey-cube"><%=image_tag("homerpending.png", height: '62')%></div>
+              <div class="back-status-pending-grey"></div>
             <% end %>
 
             <% if bet.accepted? %>
               <div class="pink-cube"><%=image_tag("homerwait.png", height: '62')%></div>
+              <div class="back-status-pending-pink"></div>
             <% end %>
 
             <% if bet.won? %>
               <% if current_user.bet_creator?(bet) %>
                 <div class="green-cube"><%=image_tag("homerwin.png", height: '62')%></div>
+                <div class="back-status-pending-green"></div>
               <% else %>
                 <div class="red-cube"><%=image_tag("lisalose.png", height: '63')%></div>
+                <div class="back-status-pending-red"></div>
               <% end  %>
             <% end %>
 
             <% if bet.lost? %>
               <% if current_user.bet_creator?(bet) %>
                 <div class="red-cube"><%=image_tag("lisalose.png", height: '63')%></div>
+                <div class="back-status-pending-red"></div>
               <% else %>
                 <div class="green-cube"><%=image_tag("homerwin.png", height: '62')%></div>
+                <div class="back-status-pending-green"></div>
               <% end  %>
             <% end %>
 
