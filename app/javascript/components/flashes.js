@@ -6,7 +6,7 @@ flash.remove();
  }
 
   if (flash) {
-    setTimeout(flashesRemove, 2000);
+    setTimeout(flashesRemove, 3300);
   };
 }
 
