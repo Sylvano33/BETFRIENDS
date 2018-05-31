@@ -72,12 +72,12 @@
     <% if current_user.bet_creator?(@bet) %>
       <div class="abstract-box">
         <div class="alert-box"><p>
-          Tu as parié <strong><%= @bet.bet_value %></strong> contre ton ami que <strong><%= @bet.description %></strong>.
+          Tu as parié <strong><%= @bet.bet_value %> contre <%= @bet.receiver_firstname %> </strong>que : <br> <em><%= @bet.description %> </em>.
         </p></div>
 
 
         <div class="alert-box">
-          <h5>Ce BET s'autodétruira dans :</h5>
+          <h5>Sans réponse : ce BET s'autodétruira </h5>
           <div id="clockdiv" data-date="<%= @bet.deadline_hour %>">
             <div>
               <span class="hours"></span>
@@ -92,9 +92,6 @@
               <div class="smalltext">Seconds</div>
             </div>
           </div>
-          <h5> ...ou tu as le possibilité de le détruire tant qu'il n'est pas accepté par <%= @bet.receiver_firstname %></h5>
-        <%= link_to "Détruire le pari", bet_path(@bet), method: :delete, class: "btn btn-primary btn-block" %>
-
 
           <!-- <div class="stabil2"></div> -->
         </div>
@@ -102,7 +99,7 @@
     <% else %>
       <div class="abstract-box">
         <div class="alert-box"><p>
-          <strong><%= @bet.user.username %></strong> est prêt à parier <strong><%= @bet.bet_value %></strong> que <strong><%= @bet.description %></strong>.
+          <strong><%= @bet.user.username %></strong> est prêt à parier <strong><%= @bet.bet_value %></strong> que : <br> <em><%= @bet.description %> </em>.
         </p></div>
 
         <div class="alert-box">
@@ -141,22 +138,22 @@
     <% if current_user.bet_creator?(@bet) %>
       <div class="abstract-box">
         <div class="alert-box"><p>
-          Tu as parié <strong><%= @bet.bet_value %></strong> contre ton ami que <strong><%= @bet.description %></strong>.
+          Tu as parié <strong><%= @bet.bet_value %> contre <%= @bet.receiver_firstname %></strong> que : <br> <em><%= @bet.description %> </em>
         </p></div>
 
         <div class="alert-box"><p>
-          Ton adversaire a accepté le BET, que le meilleur gagne!
+          <strong><%= @bet.receiver_firstname %> a accepté </strong>alors que le meilleur gagne !
         </p></div>
 
         <div class="alert-box">
-          Le pari prendra fin le <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong>
+          Le pari prendra <strong>fin le <%= l(@bet.end_date_of_bet, format: :long) %></strong>
           <div class="stabil2"></div>
         </div>
       </div>
     <% else %>
       <div class="abstract-box">
         <div class="alert-box"><p>
-          <strong><%= @bet.user.username %></strong> t'a parié <strong><%= @bet.bet_value %></strong> que <strong><%= @bet.description %></strong>.
+          <strong><%= @bet.user.username %></strong> t'a parié <strong><%= @bet.bet_value %></strong> que : <em><%= @bet.description %> </em>.
         </p></div>
 
         <div class="alert-box"><p>
@@ -180,20 +177,20 @@
     <% if current_user.bet_creator?(@bet) %>
       <div class="abstract-box">
         <div class="alert-box"><p>
-          Tu avais parié contre ton ami que <strong><%= @bet.description %></strong>.
+          Tu avais parié <strong>contre <%= @bet.receiver_firstname %> </strong>que : <br> <em><%= @bet.description %> </em>.
         </p></div>
 
-        <div class="alert-box"><p>Tu as finalement remporté ce duel avec brio le <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong>.</p></div>
+        <div class="alert-box"><p>Bien joué ! <br>Tu as remporté ce duel avec brio avant le <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong></p></div>
 
         <div class="alert-box">
-          N'oublies pas ce que vous aviez misé... <%= @bet.bet_value %>.
+          N'oublies pas de réclamer ton dû : <br><%= @bet.bet_value %>.
           <div class="stabil2"></div>
         </div>
       </div>
     <% else %>
       <div class="abstract-box">
         <div class="alert-box"><p>
-          <strong><%= @bet.user.username %></strong> avait parié que <strong><%= @bet.description %></strong>.
+          <strong><%= @bet.receiver_firstname %></strong> t'avait parié que : <br> <em><%= @bet.description %> </em>.
         </p></div>
 
         <div class="alert-box"><p>
@@ -204,7 +201,7 @@
         </p></div>
 
         <div class="alert-box">
-          N'oublies pas ce que vous aviez misé... <%= @bet.bet_value %>.
+          N'oublies pas ce que vous aviez misé : <br><%= @bet.bet_value %>.
           <div class="stabil2"></div>
         </div>
       </div>
@@ -217,7 +214,7 @@
     <% if current_user.bet_creator?(@bet) %>
       <div class="abstract-box">
         <div class="alert-box"><p>
-          <strong><%= @bet.user.username %></strong> avait parié que <strong><%= @bet.description %></strong>.
+          <strong><%= @bet.receiver_firstname %></strong> t'avait parié que : <br> <em><%= @bet.description %> </em>.
         </p></div>
 
         <div class="alert-box"><p>
@@ -225,24 +222,24 @@
         </p></div>
 
         <div class="alert-box"><p>
-          Tu t'es bien battu mais tu as fini par rendre les armes le <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong>
+          Tu as du y croire mais à la fin de pari le <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong> <br>La vérité tu as perdu !
         </p></div>
 
         <div class="alert-box">
-          N'oublies pas ce que vous aviez misé... <%= @bet.bet_value %>.
+          Alors sois fair-play et n'oublies pas ce que vous aviez misé : <br><%= @bet.bet_value %>.
           <div class="stabil2"></div>
         </div>
       </div>
     <% else %>
       <div class="abstract-box">
         <div class="alert-box"><p>
-          Tu avais parié contre ton ami que <strong><%= @bet.description %></strong>.
+          Tu avais parié contre <strong><%= @bet.receiver_firstname %> </strong>que : <br> <em><%= @bet.description %> </em>.
         </p></div>
 
-        <div class="alert-box"><p>Tu as finalement remporter ce duel avec brio le <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong>.</p></div>
+        <div class="alert-box"><p>Tu as finalement remporter ce duel avec brio avant le  <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong>.</p></div>
 
         <div class="alert-box">
-          N'oublies pas ce que vous aviez misé... <%= @bet.bet_value %>.
+          N'oublies pas ce que vous aviez misé : <br><%= @bet.bet_value %>.
           <div class="stabil2"></div>
         </div>
       </div>
@@ -260,16 +257,18 @@
     <% if @bet.pending? %>
       <% if current_user.bet_creator?(@bet) %>
         <div class="alert-box">
-          <h4>Ton adversaire est lent?</h4>
-          <h5>N'hésite pas à le harceler en lui envoyant le lien ci dessous:</h5>
+          <h5><strong><%= @bet.receiver_firstname %></strong> a reçu un mail pour <strong>accepter</strong></h5>
+          <h5>N'hésites pas à lui envoyer aussi ce lien d'invitation :</h5>
           <div class="stabil2"></div>
         </div>
-        <!-- <div class="hidden" id="start-time"><%= Time.at(@bet.deadline_acceptation - Time.zone.now) %></div>
-        <div id="countdown"></div> -->
-        <!-- lien à envoyer -->
+
         <div class="alert-box-url">
           <input class="border-link" type="text" value= <%= bet_url(@bet) %> id="url">
           <button class="btn copy" data-clipboard-target="#url">Copy URL</button>
+        </div>
+        <div class="alert-box">
+         <h5> ...ou tu as une possibilité d'annuler tant que <%= @bet.receiver_firstname %> n'a pas accepté</h5>
+        <%= link_to "Annuler le pari", bet_path(@bet), method: :delete, class: "btn btn-primary btn-block" %>
         </div>
 
       <% else %>
