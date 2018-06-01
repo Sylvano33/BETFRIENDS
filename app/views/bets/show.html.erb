@@ -77,7 +77,9 @@
 
 
         <div class="alert-box">
-          <h5>Ce BET s'autodétruira dans: </h5>
+
+          <h5>Sans réponse, ce BET s'autodétruira </h5>
+
           <div id="clockdiv" data-date="<%= @bet.deadline_hour %>">
             <div>
               <span class="hours"></span>
@@ -257,16 +259,22 @@
     <% if @bet.pending? %>
       <% if current_user.bet_creator?(@bet) %>
         <div class="alert-box">
-          <h5>N'hésites pas à lui envoyer aussi ce lien d'invitation :</h5>
+
+          <h5><strong><%= @bet.receiver_firstname %></strong> a reçu un mail pour <strong>accepter</strong></h5>
+          <h5>Lien d'invitation :</h5>
+
           <div class="stabil2"></div>
         </div>
 
         <div class="alert-box-url">
           <input class="border-link" type="text" value= <%= bet_url(@bet) %> id="url">
-          <button class="btn copy" data-clipboard-target="#url">Copy URL</button>
+          <button class="btn copy" data-clipboard-target="#url">Copier</button>
         </div>
         <div class="alert-box">
-        <%= link_to "Annuler le pari", bet_path(@bet), method: :delete, class: "btn btn-primary btn-block" %>
+
+
+        <%= link_to "Annuler ce BET", bet_path(@bet), method: :delete, class: "btn btn-primary btn-block" %>
+
         </div>
 
       <% else %>

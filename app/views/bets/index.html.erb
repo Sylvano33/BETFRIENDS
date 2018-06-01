@@ -83,7 +83,6 @@
             <div class="in-bet">
               <% if current_user.bet_creator?(bet) %>
                 <p><strong>Adversaire : </strong> <%= bet.receiver_firstname %></p>
-                <p>pari lancé par <strong> <%= bet.user.username %></strong></p>
               <% else %>
                 <p><strong>Adversaire : </strong><%= bet.user.username %></p>
               <% end  %>
