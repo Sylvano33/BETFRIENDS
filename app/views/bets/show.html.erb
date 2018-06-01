@@ -72,12 +72,14 @@
     <% if current_user.bet_creator?(@bet) %>
       <div class="abstract-box">
         <div class="alert-box"><p>
-          Tu as parié <strong><%= @bet.bet_value %> contre <%= @bet.receiver_firstname %> </strong>que : <br> <em><%= @bet.description %> </em>.
+          Tu as parié <strong><%= @bet.bet_value %> contre <%= @bet.receiver_firstname %> </strong>que: <br> <em><%= @bet.description %> </em>.
         </p></div>
 
 
         <div class="alert-box">
+
           <h5>Sans réponse, ce BET s'autodétruira </h5>
+
           <div id="clockdiv" data-date="<%= @bet.deadline_hour %>">
             <div>
               <span class="hours"></span>
@@ -190,7 +192,7 @@
     <% else %>
       <div class="abstract-box">
         <div class="alert-box"><p>
-          <strong><%= @bet.receiver_firstname %></strong> t'avait parié que : <br> <em><%= @bet.description %> </em>.
+          <strong><%= @bet.receiver_firstname %></strong> t'avait parié que <br> <em><%= @bet.description %> </em>.
         </p></div>
 
         <div class="alert-box"><p>
@@ -257,8 +259,10 @@
     <% if @bet.pending? %>
       <% if current_user.bet_creator?(@bet) %>
         <div class="alert-box">
+
           <h5><strong><%= @bet.receiver_firstname %></strong> a reçu un mail pour <strong>accepter</strong></h5>
           <h5>Lien d'invitation :</h5>
+
           <div class="stabil2"></div>
         </div>
 
@@ -268,7 +272,9 @@
         </div>
         <div class="alert-box">
 
+
         <%= link_to "Annuler ce BET", bet_path(@bet), method: :delete, class: "btn btn-primary btn-block" %>
+
         </div>
 
       <% else %>
