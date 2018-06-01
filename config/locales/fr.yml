@@ -1,0 +1,4 @@
+ fr:
+   date:
+    formats:
+      long: "%e %b %y"
