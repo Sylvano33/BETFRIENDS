@@ -192,7 +192,7 @@
     <% else %>
       <div class="abstract-box">
         <div class="alert-box"><p>
-          <strong><%= @bet.receiver_firstname %></strong> t'avait parié que <br> <em><%= @bet.description %> </em>.
+          <strong><%= @bet.user.username %></strong> t'avait parié que <br> <em><%= @bet.description %> </em>.
         </p></div>
 
         <div class="alert-box"><p>
@@ -235,7 +235,7 @@
     <% else %>
       <div class="abstract-box">
         <div class="alert-box"><p>
-          Tu avais parié contre <strong><%= @bet.receiver_firstname %> </strong>que : <br> <em><%= @bet.description %> </em>.
+          Tu avais parié contre <strong><%= @bet.user.username %></strong>que : <br> <em><%= @bet.description %> </em>.
         </p></div>
 
         <div class="alert-box"><p>Tu as finalement remporter ce duel avec brio avant le  <strong><%= l(@bet.end_date_of_bet, format: :long) %></strong>.</p></div>
