@@ -345,9 +345,9 @@
       </div>
       <div class="modal-footer">
         <% if current_user.bet_creator?(@bet) %>
-          <%= link_to "Je reviendrai plus fort", bet_path(@bet, bet: {status: "lost"}), method: :put, class: "btn btn-primary btn-block" %>
+          <%= link_to "Ok, j'accepte cette défaite", bet_path(@bet, bet: {status: "lost"}), method: :put, class: "btn btn-primary btn-block" %>
         <% else %>
-          <%= link_to "Je reviendrai plus fort", bet_path(@bet, bet: {status: "won"}), method: :put, class: "btn btn-primary btn-block" %>
+          <%= link_to "Ok, j'accepte cette défaite", bet_path(@bet, bet: {status: "won"}), method: :put, class: "btn btn-primary btn-block" %>
         <% end %>
       </div>
     </div>
@@ -371,9 +371,9 @@
       </div>
       <div class="modal-footer">
         <% if current_user.bet_creator?(@bet) %>
-          <%= link_to "Je vais fêter ça", bet_path(@bet, bet: {status: "won"}), method: :put, class: "btn btn-warning btn-block" %>
+          <%= link_to "Je valide ma victoire !", bet_path(@bet, bet: {status: "won"}), method: :put, class: "btn btn-warning btn-block" %>
         <% else  %>
-          <%= link_to "Je vais fêter ça", bet_path(@bet, bet: {status: "lost"}), method: :put, class: "btn btn-warning btn-block" %>
+          <%= link_to "Je valide ma victoire !", bet_path(@bet, bet: {status: "lost"}), method: :put, class: "btn btn-warning btn-block" %>
         <%end  %>
       </div>
     </div>
